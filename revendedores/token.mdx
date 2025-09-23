@@ -1,0 +1,68 @@
+---
+title: " Gerenciar Token"
+api: "PUT /resale/token/fixed"
+description: "Fixar ou liberar token da revenda"
+---
+
+## Endpoint
+
+<CodeGroup>
+
+```bash Requisição
+PUT /resale/token/fixed
+```
+
+</CodeGroup>
+
+## Descrição
+
+Fixa ou libera o token de uma revenda específica.
+
+## Parâmetros
+
+<ParamField body="resale_id" type="integer" required>
+  ID da revenda
+</ParamField>
+
+<ParamField body="fixed" type="boolean" required>
+  true para fixar, false para liberar
+</ParamField>
+
+## Resposta
+
+<ResponseField name="success" type="boolean">
+  Indica se a operação foi bem-sucedida
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Mensagem de confirmação
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  <Expandable title="properties">
+    <ResponseField name="resale_id" type="integer">
+      ID da revenda
+    </ResponseField>
+    <ResponseField name="token_fixed" type="boolean">
+      Status do token (fixado/liberado)
+    </ResponseField>
+    <ResponseField name="updated_at" type="string">
+      Data da atualização
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+## Exemplo de Resposta
+
+**Sucesso (200 OK):**
+```json
+{
+  "success": true,
+  "message": "Token fixado com sucesso",
+  "data": {
+    "resale_id": 15,
+    "token_fixed": true,
+    "updated_at": "2024-01-15T11:30:00Z"
+  }
+}
+```

@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "API Painel Office",
+  "name": "Documentação",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -15,21 +15,60 @@
         "pages": ["index"]
       },
       {
-        "group": "API Reference",
+        "group": "Auth",
         "pages": [
-          "revenda",
-          "autenticacao",
-          "iptv",
-          "p2p",
-          "nexus",
-          "redclub"
+          "auth/login"
+        ]
+      },
+      {
+        "group": "Clientes",
+        "pages": [
+          "clientes/criar",
+          "clientes/editar",
+          "clientes/ativar",
+          "clientes/deletar"
+        ]
+      },
+      {
+        "group": "Revendedores",
+        "pages": [
+          "revendedores/criar",
+          "revendedores/creditos",
+          "revendedores/token",
+          "revendedores/ativar-ultra",
+          "revendedores/desativar-ultra"
+        ]
+      },
+      {
+        "group": "IPTV",
+        "pages": [
+          "iptv/criar",
+          "iptv/renovar",
+          "iptv/ativar-app"
+        ]
+      },
+      {
+        "group": "P2P",
+        "pages": [
+          "p2p/criar",
+          "p2p/renovar"
+        ]
+      },
+      {
+        "group": "Nexus",
+        "pages": [
+          "nexus/criar",
+          "nexus/estender"
+        ]
+      },
+      {
+        "group": "Red Club",
+        "pages": [
+          "redclub/criar",
+          "redclub/estender"
         ]
       }
     ]
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
   },
   "navbar": {
     "links": [

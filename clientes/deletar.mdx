@@ -1,0 +1,48 @@
+---
+title: "Deletar Cliente"
+api: "DELETE /clientes/deletar/{id}"
+description: "Deleta cliente"
+---
+
+## Endpoint
+
+<CodeGroup>
+
+```bash Requisição
+DELETE /clientes/deletar/{id}
+```
+
+</CodeGroup>
+
+## Descrição
+
+Este endpoint permite deletar um cliente do sistema.
+
+## Parâmetros de URL
+
+<ParamField path="id" type="string" required>
+  ID do cliente a ser deletado
+</ParamField>
+
+## Resposta
+
+<ResponseField name="success" type="boolean">
+  Indica se a operação foi bem-sucedida
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Mensagem de confirmação
+</ResponseField>
+
+## Exemplo de Resposta
+
+```json
+{
+  "success": true,
+  "message": "Cliente deletado com sucesso"
+}
+```
+
+<Note>
+  **Atenção**: Esta operação é irreversível. Certifique-se de que realmente deseja deletar o cliente antes de executar esta ação.
+</Note>

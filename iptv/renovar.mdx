@@ -1,0 +1,81 @@
+---
+title: " Renovar IPTV"
+api: "PUT /iptv/extend/{id}"
+description: "Renova um usuário IPTV"
+---
+
+## Endpoint
+
+<CodeGroup>
+
+```bash Requisição
+PUT /iptv/extend/{id}
+```
+
+</CodeGroup>
+
+## Descrição
+
+Renova um usuário IPTV existente, estendendo sua validade.
+
+## Parâmetros de URL
+
+<ParamField path="id" type="integer" required>
+  ID do usuário IPTV
+</ParamField>
+
+## Parâmetros do Body
+
+<ParamField body="extend_days" type="integer" required>
+  Número de dias para estender
+</ParamField>
+
+<ParamField body="package_id" type="integer">
+  Novo ID do pacote (opcional)
+</ParamField>
+
+## Resposta
+
+<ResponseField name="success" type="boolean">
+  Indica se a operação foi bem-sucedida
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Mensagem de confirmação
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  <Expandable title="properties">
+    <ResponseField name="id" type="integer">
+      ID do usuário IPTV
+    </ResponseField>
+    <ResponseField name="username" type="string">
+      Nome de usuário
+    </ResponseField>
+    <ResponseField name="previous_expires_at" type="string">
+      Data de expiração anterior
+    </ResponseField>
+    <ResponseField name="new_expires_at" type="string">
+      Nova data de expiração
+    </ResponseField>
+    <ResponseField name="days_extended" type="integer">
+      Dias estendidos
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+## Exemplo de Resposta
+
+```json
+{
+  "success": true,
+  "message": "Usuário IPTV renovado com sucesso",
+  "data": {
+    "id": 1001,
+    "username": "usuario_iptv_001",
+    "previous_expires_at": "2024-02-15T10:30:00Z",
+    "new_expires_at": "2024-03-16T10:30:00Z",
+    "days_extended": 30
+  }
+}
+```

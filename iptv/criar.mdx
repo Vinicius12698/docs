@@ -1,0 +1,103 @@
+---
+title: " Criar IPTV"
+api: "POST /iptv"
+description: "Cria um usuário/teste IPTV"
+---
+
+## Endpoint
+
+<CodeGroup>
+
+```bash Requisição
+POST /iptv
+```
+
+</CodeGroup>
+
+## Descrição
+
+Cria um novo usuário ou teste IPTV no sistema.
+
+## Parâmetros
+
+<ParamField body="username" type="string" required>
+  Nome de usuário IPTV
+</ParamField>
+
+<ParamField body="password" type="string" required>
+  Senha do usuário
+</ParamField>
+
+<ParamField body="max_connections" type="integer">
+  Número máximo de conexões simultâneas (padrão: 1)
+</ParamField>
+
+<ParamField body="is_trial" type="boolean">
+  Se é um teste gratuito (padrão: false)
+</ParamField>
+
+<ParamField body="trial_duration" type="integer">
+  Duração do teste em horas (obrigatório se is_trial=true)
+</ParamField>
+
+<ParamField body="package_id" type="integer" required>
+  ID do pacote IPTV
+</ParamField>
+
+<ParamField body="resale_id" type="integer" required>
+  ID da revenda
+</ParamField>
+
+## Resposta
+
+<ResponseField name="success" type="boolean">
+  Indica se a operação foi bem-sucedida
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Mensagem de confirmação
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  <Expandable title="properties">
+    <ResponseField name="id" type="integer">
+      ID do usuário IPTV criado
+    </ResponseField>
+    <ResponseField name="username" type="string">
+      Nome de usuário IPTV
+    </ResponseField>
+    <ResponseField name="max_connections" type="integer">
+      Número máximo de conexões
+    </ResponseField>
+    <ResponseField name="status" type="string">
+      Status do usuário
+    </ResponseField>
+    <ResponseField name="expires_at" type="string">
+      Data de expiração
+    </ResponseField>
+    <ResponseField name="connection_url" type="string">
+      URL de conexão IPTV
+    </ResponseField>
+    <ResponseField name="m3u_url" type="string">
+      URL do arquivo M3U
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+## Exemplo de Resposta
+
+```json
+{
+  "success": true,
+  "message": "Usuário IPTV criado com sucesso",
+  "data": {
+    "id": 1001,
+    "username": "usuario_iptv_001",
+    "max_connections": 2,
+    "status": "active",
+    "expires_at": "2024-02-15T10:30:00Z",
+    "connection_url": "http://servidor.iptv.com:8080",
+    "m3u_url": "http://servidor.iptv.com:8080/get.php?username=usuario_iptv_001&password=senha123&type=m3u_plus"
+  }
+}
+```

@@ -1,0 +1,92 @@
+---
+title: " Criar Revenda"
+api: "POST /resale"
+description: "Cria uma nova revenda"
+---
+
+## Endpoint
+
+<CodeGroup>
+
+```bash Requisição
+POST /resale
+```
+
+</CodeGroup>
+
+## Descrição
+
+Cria uma nova revenda no sistema com os dados fornecidos.
+
+## Parâmetros
+
+<ParamField body="name" type="string" required>
+  Nome da revenda
+</ParamField>
+
+<ParamField body="email" type="string" required>
+  E-mail da revenda
+</ParamField>
+
+<ParamField body="password" type="string" required>
+  Senha da revenda
+</ParamField>
+
+<ParamField body="credits" type="number">
+  Créditos iniciais (padrão: 0)
+</ParamField>
+
+<ParamField body="status" type="string">
+  Status da revenda (ativo/inativo)
+</ParamField>
+
+## Resposta
+
+<ResponseField name="success" type="boolean">
+  Indica se a operação foi bem-sucedida
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Mensagem de confirmação
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  <Expandable title="properties">
+    <ResponseField name="id" type="integer">
+      ID da revenda criada
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Nome da revenda
+    </ResponseField>
+    <ResponseField name="email" type="string">
+      Email da revenda
+    </ResponseField>
+    <ResponseField name="credits" type="number">
+      Créditos da revenda
+    </ResponseField>
+    <ResponseField name="status" type="string">
+      Status da revenda
+    </ResponseField>
+    <ResponseField name="created_at" type="string">
+      Data de criação
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+## Exemplo de Resposta
+
+**Sucesso (201 Created):**
+```json
+{
+  "success": true,
+  "message": "Revenda criada com sucesso",
+  "data": {
+    "id": 15,
+    "name": "Revenda Premium",
+    "email": "contato@revendapremium.com",
+    "credits": 100,
+    "status": "active",
+    "created_at": "2024-01-15T10:30:00Z"
+  }
+}
+```
