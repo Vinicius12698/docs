@@ -25,7 +25,15 @@
         "tab": "API reference",
         "groups": []
       }
-    ]
+    ],
+    "sidebar": {
+      "items": [
+        {
+          "label": "Resposta da API",
+          "href": "/resposta-da-api"
+        }
+      ]
+    }
   },
   "logo": {
     "light": "/logo/light.svg",
