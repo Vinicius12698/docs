@@ -27,6 +27,7 @@
       }
     ],
     "sidebar": {
+      "visible": true,
       "items": [
         {
           "label": "Respostas da API",
