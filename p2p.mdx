@@ -1,0 +1,148 @@
+
+## POST /p2p
+
+Cria um novo usuário ou teste P2P no sistema.
+
+### Método e Rota
+```
+POST /p2p
+```
+
+### Parâmetros do Corpo da Requisição
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| `username` | string | Sim | Nome de usuário P2P |
+| `password` | string | Sim | Senha do usuário |
+| `is_trial` | boolean | Não | Se é um teste gratuito (padrão: false) |
+| `trial_duration` | integer | Não | Duração do teste em horas (obrigatório se is_trial=true) |
+| `package_id` | integer | Sim | ID do pacote P2P |
+| `resale_id` | integer | Sim | ID da revenda |
+| `max_devices` | integer | Não | Número máximo de dispositivos (padrão: 1) |
+
+### Exemplo de Requisição
+
+```bash
+curl -X POST "https://api.paineloffice.com/p2p" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {token}" \
+  -d '{
+    "username": "usuario_p2p_001",
+    "password": "senha123",
+    "is_trial": false,
+    "package_id": 3,
+    "resale_id": 15,
+    "max_devices": 3
+  }'
+```
+
+### Exemplo de Resposta
+
+**Sucesso (201 Created):**
+```json
+{
+  "success": true,
+  "message": "Usuário P2P criado com sucesso",
+  "data": {
+    "id": 2001,
+    "username": "usuario_p2p_001",
+    "is_trial": false,
+    "status": "active",
+    "package_id": 3,
+    "resale_id": 15,
+    "max_devices": 3,
+    "expires_at": "2024-02-15T10:30:00Z",
+    "created_at": "2024-01-15T10:30:00Z",
+    "server_url": "http://p2p.servidor.com:8080",
+    "streaming_key": "p2p_key_abc123def456"
+  }
+}
+```
+
+**Erro (422 Unprocessable Entity):**
+```json
+{
+  "success": false,
+  "message": "Dados de entrada inválidos",
+  "errors": {
+    "username": ["Nome de usuário já existe"],
+    "package_id": ["Pacote não encontrado"]
+  }
+}
+```
+
+---
+
+## PUT /p2p/extend/{id}
+
+Renova um usuário P2P existente, estendendo sua validade.
+
+### Método e Rota
+```
+PUT /p2p/extend/{id}
+```
+
+### Parâmetros da URL
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| `id` | integer | Sim | ID do usuário P2P |
+
+### Parâmetros do Corpo da Requisição
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| `extend_days` | integer | Sim | Número de dias para estender |
+| `package_id` | integer | Não | Novo ID do pacote (opcional) |
+| `max_devices` | integer | Não | Novo limite de dispositivos (opcional) |
+
+### Exemplo de Requisição
+
+```bash
+curl -X PUT "https://api.paineloffice.com/p2p/extend/2001" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {token}" \
+  -d '{
+    "extend_days": 30,
+    "package_id": 3,
+    "max_devices": 5
+  }'
+```
+
+### Exemplo de Resposta
+
+**Sucesso (200 OK):**
+```json
+{
+  "success": true,
+  "message": "Usuário P2P renovado com sucesso",
+  "data": {
+    "id": 2001,
+    "username": "usuario_p2p_001",
+    "previous_expires_at": "2024-02-15T10:30:00Z",
+    "new_expires_at": "2024-03-16T10:30:00Z",
+    "days_extended": 30,
+    "package_id": 3,
+    "max_devices": 5,
+    "updated_at": "2024-01-15T11:00:00Z"
+  }
+}
+```
+
+**Erro (404 Not Found):**
+```json
+{
+  "success": false,
+  "message": "Usuário P2P não encontrado",
+  "error": "USER_NOT_FOUND"
+}
+```
+
+**Erro (400 Bad Request):**
+```json
+{
+  "success": false,
+  "message": "Créditos insuficientes na revenda",
+  "error": "INSUFFICIENT_CREDITS"
+}
+```

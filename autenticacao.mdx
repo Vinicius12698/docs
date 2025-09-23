@@ -1,0 +1,68 @@
+
+## POST /auth/login
+
+Realiza o login no sistema e retorna um token de acesso para autenticação nas demais requisições da API.
+
+### Método e Rota
+```
+POST /auth/login
+```
+
+### Parâmetros do Corpo da Requisição
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| `email` | string | Sim | E-mail do usuário |
+| `password` | string | Sim | Senha do usuário |
+
+### Exemplo de Requisição
+
+```bash
+curl -X POST "https://api.paineloffice.com/auth/login" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "usuario@exemplo.com",
+    "password": "minhasenha123"
+  }'
+```
+
+### Exemplo de Resposta
+
+**Sucesso (200 OK):**
+```json
+{
+  "success": true,
+  "message": "Login realizado com sucesso",
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "expires_in": 3600,
+    "user": {
+      "id": 1,
+      "email": "usuario@exemplo.com",
+      "name": "João Silva",
+      "role": "admin"
+    }
+  }
+}
+```
+
+**Erro (401 Unauthorized):**
+```json
+{
+  "success": false,
+  "message": "Credenciais inválidas",
+  "error": "INVALID_CREDENTIALS"
+}
+```
+
+**Erro (422 Unprocessable Entity):**
+```json
+{
+  "success": false,
+  "message": "Dados de entrada inválidos",
+  "errors": {
+    "email": ["O campo email é obrigatório"],
+    "password": ["O campo password é obrigatório"]
+  }
+}
+```

@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "API Painel Office",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -9,44 +9,24 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Comece aqui",
-            "pages": [
-              "index"
-            ]
-          }
-        ]
+        "group": "Introdução",
+        "pages": ["Início"]
       },
       {
-        "tab": "API reference",
-        "groups": []
+        "group": "API Reference",
+        "pages": [
+          "revenda",
+          "autenticacao",
+          "iptv",
+          "p2p",
+          "nexus",
+          "redclub",
+          "precos-franquias"
+        ]
       }
-    ],
-    "sidebar": {
-      "visible": true,
-      "items": [
-        {
-          "label": "Respostas da API",
-          "href": "/respostas-da-api"
-        },
-        {
-          "label": "Outros Itens",
-          "href": "/outros-itens"
-        },
-        {
-          "label": "Nova Página",
-          "href": "/nova-pagina"
-        },
-        {
-          "label": "Mais Informações",
-          "href": "/mais-informacoes"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
