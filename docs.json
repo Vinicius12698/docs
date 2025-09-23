@@ -35,6 +35,10 @@
         {
           "label": "Outros Itens",
           "href": "/outros-itens"
+        },
+        {
+          "label": "Nova Página",
+          "href": "/nova-pagina"
         }
       ]
     }
