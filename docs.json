@@ -16,8 +16,6 @@
           {
             "group": "Getting started",
             "pages": [
-              "index",
-              "quickstart",
               "development"
             ]
           }
@@ -31,7 +29,7 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
+          "anchor": "lalalelilo",
           "href": "https://mintlify.com/docs",
           "icon": "book-open-cover"
         },
