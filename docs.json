@@ -31,6 +31,10 @@
         {
           "label": "Respostas da API",
           "href": "/respostas-da-api"
+        },
+        {
+          "label": "Outros Itens",
+          "href": "/outros-itens"
         }
       ]
     }
