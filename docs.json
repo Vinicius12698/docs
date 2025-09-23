@@ -14,9 +14,21 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Comece aqui",
             "pages": [
-              "development"
+              "Autentificação"
+            ]
+          },
+          {
+            "group": "Códigos htpps e sua resposta",
+            "pages": [
+              "Autentificação"
+            ]
+          },
+          {
+            "group": "Limites da API",
+            "pages": [
+              "Autentificação"
             ]
           }
         ]
@@ -25,26 +37,7 @@
         "tab": "API reference",
         "groups": []
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "lalalelilo",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
