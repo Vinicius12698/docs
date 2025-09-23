@@ -21,22 +21,11 @@
         ]
       },
       {
-        "group": "Clientes",
-        "pages": [
-          "clientes/criar",
-          "clientes/editar",
-          "clientes/ativar",
-          "clientes/deletar"
-        ]
-      },
-      {
         "group": "Revendedores",
         "pages": [
           "revendedores/criar",
           "revendedores/creditos",
-          "revendedores/token",
-          "revendedores/ativar-ultra",
-          "revendedores/desativar-ultra"
+          "revendedores/token"
         ]
       },
       {
