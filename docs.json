@@ -29,8 +29,8 @@
     "sidebar": {
       "items": [
         {
-          "label": "Resposta da API",
-          "href": "/resposta-da-api"
+          "label": "Respostas da API",
+          "href": "/respostas-da-api"
         }
       ]
     }
