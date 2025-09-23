@@ -12,7 +12,7 @@
     "groups": [
       {
         "group": "Introdução",
-        "pages": ["Início"]
+        "pages": ["index"]
       },
       {
         "group": "API Reference",
@@ -22,8 +22,7 @@
           "iptv",
           "p2p",
           "nexus",
-          "redclub",
-          "precos-franquias"
+          "redclub"
         ]
       }
     ]
