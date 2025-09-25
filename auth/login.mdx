@@ -20,8 +20,8 @@ Realiza o login no sistema e retorna um token de acesso para autenticação nas 
 
 ## Parâmetros
 
-<ParamField body="email" type="string" required>
-  E-mail do usuário
+<ParamField body="username" type="string" required>
+  Nome de usuário
 </ParamField>
 
 <ParamField body="password" type="string" required>
@@ -100,7 +100,7 @@ Realiza o login no sistema e retorna um token de acesso para autenticação nas 
   "success": false,
   "message": "Dados de entrada inválidos",
   "errors": {
-    "email": ["O campo email é obrigatório"],
+    "username": ["O campo username é obrigatório"],
     "password": ["O campo password é obrigatório"]
   }
 }
