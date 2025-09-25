@@ -1,7 +1,7 @@
 
 ---
 title: "Login"
-api: "POST /auth/login"
+api: "POST https://api-new.paineloffice.click/auth/login"
 description: "Realiza login"
 ---
 
@@ -31,37 +31,53 @@ Realiza o login no sistema e retorna um token de acesso para autenticação nas 
 
 ## Resposta
 
-<ResponseField name="success" type="boolean">
-  Indica se a operação foi bem-sucedida
+<ResponseField name="auth" type="boolean">
+  Indica se a autenticação foi bem-sucedida
 </ResponseField>
 
-<ResponseField name="message" type="string">
-  Mensagem de confirmação
+<ResponseField name="username" type="string">
+  Nome de usuário codificado em base64
 </ResponseField>
 
-<ResponseField name="data" type="object">
+<ResponseField name="password" type="string">
+  Senha codificada em base64
+</ResponseField>
+
+<ResponseField name="token" type="string">
+  Token de autenticação
+</ResponseField>
+
+<ResponseField name="id" type="number">
+  ID do usuário
+</ResponseField>
+
+<ResponseField name="big_tree" type="null">
+  Campo reservado para estrutura hierárquica
+</ResponseField>
+
+<ResponseField name="isMaster" type="boolean">
+  Indica se o usuário é master
+</ResponseField>
+
+<ResponseField name="user" type="object">
   <Expandable title="properties">
-    <ResponseField name="token" type="string">
-      Token de autenticação JWT
+    <ResponseField name="type_user" type="string">
+      Tipo de usuário (ex: "Resellers")
     </ResponseField>
-    <ResponseField name="expires_in" type="number">
-      Tempo de expiração do token em segundos
+    <ResponseField name="id" type="number">
+      ID do usuário
     </ResponseField>
-    <ResponseField name="user" type="object">
-      <Expandable title="properties">
-        <ResponseField name="id" type="number">
-          ID do usuário
-        </ResponseField>
-        <ResponseField name="email" type="string">
-          Email do usuário
-        </ResponseField>
-        <ResponseField name="name" type="string">
-          Nome do usuário
-        </ResponseField>
-        <ResponseField name="role" type="string">
-          Perfil/função do usuário
-        </ResponseField>
-      </Expandable>
+    <ResponseField name="username" type="string">
+      Nome de usuário
+    </ResponseField>
+    <ResponseField name="credits" type="number">
+      Quantidade de créditos disponíveis
+    </ResponseField>
+    <ResponseField name="franchise_id" type="number">
+      ID da franquia
+    </ResponseField>
+    <ResponseField name="franquia" type="null">
+      Dados da franquia (null se não houver)
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -71,17 +87,20 @@ Realiza o login no sistema e retorna um token de acesso para autenticação nas 
 **Sucesso (200 OK):**
 ```json
 {
-  "success": true,
-  "message": "Login realizado com sucesso",
-  "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-    "expires_in": 3600,
-    "user": {
-      "id": 1,
-      "email": "usuario@exemplo.com",
-      "name": "João Silva",
-      "role": "admin"
-    }
+  "auth": true,
+  "username": "bWlyZWxhdGVzdGU=",
+  "password": "dGVzdGUxMjM=",
+  "token": "e082a50b38f212f7216218a72c71c79f",
+  "id": 1933600,
+  "big_tree": null,
+  "isMaster": true,
+  "user": {
+    "type_user": "Resellers",
+    "id": 1933600,
+    "username": "mirelateste",
+    "credits": 268,
+    "franchise_id": 1,
+    "franquia": null
   }
 }
 ```

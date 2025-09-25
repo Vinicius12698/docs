@@ -1,6 +1,6 @@
 ---
 title: " Realizar Login"
-api: "POST /auth/login"
+api: "POST https://api-new.paineloffice.click/auth/login"
 description: "Realiza login"
 ---
 
@@ -70,17 +70,20 @@ Realiza o login no sistema e retorna um token de acesso para autenticação nas 
 **Sucesso (200 OK):**
 ```json
 {
-  "success": true,
-  "message": "Login realizado com sucesso",
-  "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-    "expires_in": 3600,
-    "user": {
-      "id": 1,
-      "email": "usuario@exemplo.com",
-      "name": "João Silva",
-      "role": "admin"
-    }
+  "auth": true,
+  "username": "bWlyZWxhdGVzdGU=",
+  "password": "dGVzdGUxMjM=",
+  "token": "e082a50b38f212f7216218a72c71c79f",
+  "id": 1933600,
+  "big_tree": null,
+  "isMaster": true,
+  "user": {
+    "type_user": "Resellers",
+    "id": 1933600,
+    "username": "mirelateste",
+    "credits": 268,
+    "franchise_id": 1,
+    "franquia": null
   }
 }
 ```
