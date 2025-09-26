@@ -4,12 +4,31 @@ api: "POST https://api-new.paineloffice.click/resale"
 description: "Cria uma nova revenda"
 ---
 
+<RequestExample>
+
+```json Exemplo de Body
+{
+  "credits": 10,
+  "email": "11111111111111",
+  "master": false,
+  "notes": "111111111",
+  "pass": "1111asawe",
+  "pattern": 0,
+  "sale": 10,
+  "user": "11111111",
+  "whatsapp": "+55 11 11111 1111"
+}
+```
+
+</RequestExample>
+
 ## Endpoint
 
 <CodeGroup>
 
 ```bash Requisição
 POST /resale
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -20,24 +39,44 @@ Cria uma nova revenda no sistema com os dados fornecidos.
 
 ## Parâmetros
 
-<ParamField body="name" type="string" required>
-  Nome da revenda
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
+
+<ParamField body="user" type="string" required>
+  Nome de usuário da revenda
+</ParamField>
+
+<ParamField body="pass" type="string" required>
+  Senha da revenda
+</ParamField>
+
+<ParamField body="notes" type="string">
+  Notas sobre a revenda
+</ParamField>
+
+<ParamField body="whatsapp" type="string">
+  WhatsApp da revenda
 </ParamField>
 
 <ParamField body="email" type="string" required>
   E-mail da revenda
 </ParamField>
 
-<ParamField body="password" type="string" required>
-  Senha da revenda
+<ParamField body="master" type="boolean">
+  Se é master (true/false)
 </ParamField>
 
 <ParamField body="credits" type="number">
-  Créditos iniciais (padrão: 0)
+  Créditos iniciais
 </ParamField>
 
-<ParamField body="status" type="string">
-  Status da revenda (ativo/inativo)
+<ParamField body="pattern" type="integer">
+  Padrão do sistema
+</ParamField>
+
+<ParamField body="sale" type="number">
+  Valor de venda
 </ParamField>
 
 ## Resposta

@@ -4,12 +4,26 @@ api: "PATCH https://api-new.paineloffice.click/resale/add-credits/{id}"
 description: "Adiciona ou remove créditos de uma revenda"
 ---
 
+<RequestExample>
+
+```json Exemplo de Body
+{
+  "credits": "20",
+  "id": 1934449,
+  "reason": "213123",
+  "sale": 100.02
+}
+```
+
+</RequestExample>
+
 ## Endpoint
 
 <CodeGroup>
 
 ```bash Requisição
 PATCH /resale/add-credits/{id}
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -18,20 +32,28 @@ PATCH /resale/add-credits/{id}
 
 Adiciona ou remove créditos de uma revenda específica.
 
-## Parâmetros de URL
+## Parâmetros
 
-<ParamField path="id" type="integer" required>
-  ID da revenda
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
 </ParamField>
 
 ## Parâmetros do Body
 
-<ParamField body="credits" type="number" required>
-  Quantidade de créditos (positivo para adicionar, negativo para remover)
+<ParamField body="credits" type="string" required>
+  Quantidade de créditos
+</ParamField>
+
+<ParamField body="id" type="integer" required>
+  ID da revenda
 </ParamField>
 
 <ParamField body="reason" type="string">
   Motivo da alteração
+</ParamField>
+
+<ParamField body="sale" type="number">
+  Valor de venda
 </ParamField>
 
 ## Resposta

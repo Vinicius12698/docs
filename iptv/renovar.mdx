@@ -10,6 +10,7 @@ description: "Renova um usuário IPTV"
 
 ```bash Requisição
 PUT /iptv/extend/{id}
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -17,6 +18,12 @@ PUT /iptv/extend/{id}
 ## Descrição
 
 Renova um usuário IPTV existente, estendendo sua validade.
+
+## Parâmetros
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
 
 ## Parâmetros de URL
 

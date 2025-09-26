@@ -10,6 +10,7 @@ description: "Renova um usuário P2P"
 
 ```bash Requisição
 PUT /p2p/extend/{id}
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -17,6 +18,12 @@ PUT /p2p/extend/{id}
 ## Descrição
 
 Renova um usuário P2P existente, estendendo sua validade.
+
+## Parâmetros
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
 
 ## Parâmetros de URL
 

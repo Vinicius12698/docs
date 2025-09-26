@@ -10,6 +10,7 @@ description: "Cria um usuário/teste IPTV"
 
 ```bash Requisição
 POST /iptv
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -19,6 +20,10 @@ POST /iptv
 Cria um novo usuário ou teste IPTV no sistema.
 
 ## Parâmetros
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
 
 <ParamField body="username" type="string" required>
   Nome de usuário IPTV

@@ -10,6 +10,7 @@ description: "Cria um usuário/teste Nexus"
 
 ```bash Requisição
 POST /nexus
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -19,6 +20,10 @@ POST /nexus
 Cria um novo usuário ou teste Nexus no sistema.
 
 ## Parâmetros
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
 
 <ParamField body="username" type="string" required>
   Nome de usuário Nexus

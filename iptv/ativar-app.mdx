@@ -10,6 +10,7 @@ description: "Ativa aplicativo IPTV para usuário"
 
 ```bash Requisição
 POST /iptv/activate/app
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -19,6 +20,10 @@ POST /iptv/activate/app
 Ativa um aplicativo IPTV específico para um usuário.
 
 ## Parâmetros
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
 
 <ParamField body="user_id" type="integer" required>
   ID do usuário IPTV

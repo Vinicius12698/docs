@@ -10,6 +10,7 @@ description: "Estende o usuário RedClub"
 
 ```bash Requisição
 POST /red-club/extend/{id}
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -17,6 +18,12 @@ POST /red-club/extend/{id}
 ## Descrição
 
 Estende a validade de um usuário RedClub existente.
+
+## Parâmetros
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
 
 ## Parâmetros de URL
 

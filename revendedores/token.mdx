@@ -4,12 +4,25 @@ api: "PUT https://api-new.paineloffice.click/resale/token/fixed"
 description: "Fixar ou liberar token da revenda"
 ---
 
+<RequestExample>
+
+```json Exemplo de Body
+{
+  "id": 0,
+  "success": true,
+  "is_fixed": 0
+}
+```
+
+</RequestExample>
+
 ## Endpoint
 
 <CodeGroup>
 
 ```bash Requisição
 PUT /resale/token/fixed
+Authorization: Bearer <token>
 ```
 
 </CodeGroup>
@@ -20,12 +33,20 @@ Fixa ou libera o token de uma revenda específica.
 
 ## Parâmetros
 
-<ParamField body="resale_id" type="integer" required>
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
+
+<ParamField body="id" type="integer" required>
   ID da revenda
 </ParamField>
 
-<ParamField body="fixed" type="boolean" required>
-  true para fixar, false para liberar
+<ParamField body="success" type="boolean" required>
+  Status de sucesso da operação
+</ParamField>
+
+<ParamField body="is_fixed" type="integer" required>
+  Status do token (1 para fixar, 0 para liberar)
 </ParamField>
 
 ## Resposta
