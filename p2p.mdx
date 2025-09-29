@@ -17,27 +17,52 @@ POST /p2p
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|-------------|-----------|
-| `username` | string | Sim | Nome de usuário P2P |
-| `password` | string | Sim | Senha do usuário |
-| `is_trial` | boolean | Não | Se é um teste gratuito (padrão: false) |
-| `trial_duration` | integer | Não | Duração do teste em horas (obrigatório se is_trial=true) |
-| `package_id` | integer | Sim | ID do pacote P2P |
-| `resale_id` | integer | Sim | ID da revenda |
-| `max_devices` | integer | Não | Número máximo de dispositivos (padrão: 1) |
+| `amount` | integer | Sim | Quantidade/valor |
+| `contact` | string | Sim | Contato do usuário |
+| `isTrial` | boolean | Sim | Se é um teste gratuito |
+| `month` | number | Sim | Duração em meses |
+| `notes` | string | Não | Observações |
+| `packageId` | string | Sim | ID do pacote P2P |
+| `passline` | string | Sim | Senha de linha |
+| `sale_value` | number | Sim | Valor da venda |
+| `typeUser` | integer | Sim | Tipo do usuário |
+| `userline` | string | Sim | Linha do usuário |
+| `whatsapp` | string | Sim | WhatsApp do usuário |
 
 ### Exemplo de Requisição
 
-```bash
+```json TryIt
+{
+  "amount": 15,
+  "contact": "11111111111111111111",
+  "isTrial": false,
+  "month": 0.5,
+  "notes": "111111111",
+  "packageId": "5da17892133a1d61888029aa",
+  "passline": "17733172",
+  "sale_value": 0,
+  "typeUser": 2,
+  "userline": "364395430",
+  "whatsapp": "+55 11 11111 1111"
+}
+```
+
+```bash cURL
 curl -X POST "https://paineloffice.click/p2p" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer {token}" \
   -d '{
-    "username": "usuario_p2p_001",
-    "password": "senha123",
-    "is_trial": false,
-    "package_id": 3,
-    "resale_id": 15,
-    "max_devices": 3
+    "amount": 15,
+    "contact": "11111111111111111111",
+    "isTrial": false,
+    "month": 0.5,
+    "notes": "111111111",
+    "packageId": "5da17892133a1d61888029aa",
+    "passline": "17733172",
+    "sale_value": 0,
+    "typeUser": 2,
+    "userline": "364395430",
+    "whatsapp": "+55 11 11111 1111"
   }'
 ```
 
@@ -80,39 +105,41 @@ curl -X POST "https://paineloffice.click/p2p" \
 
 ---
 
-## PUT /p2p/extend/{id}
+## PUT /p2p/extend
 
 Renova um usuário P2P existente, estendendo sua validade.
 
 ### Método e Rota
 ```
-PUT /p2p/extend/{id}
+PUT /p2p/extend
 ```
-
-### Parâmetros da URL
-
-| Campo | Tipo | Obrigatório | Descrição |
-|-------|------|-------------|-----------|
-| `id` | integer | Sim | ID do usuário P2P |
 
 ### Parâmetros do Corpo da Requisição
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|-------------|-----------|
-| `extend_days` | integer | Sim | Número de dias para estender |
-| `package_id` | integer | Não | Novo ID do pacote (opcional) |
-| `max_devices` | integer | Não | Novo limite de dispositivos (opcional) |
+| `amount` | number | Sim | Valor da renovação |
+| `month` | integer | Sim | Número de meses para estender |
+| `screen` | integer | Sim | Número de telas |
 
 ### Exemplo de Requisição
 
-```bash
-curl -X PUT "https://paineloffice.click/p2p/extend/2001" \
+```json TryIt
+{
+  "amount": 150.01,
+  "month": 1,
+  "screen": 1
+}
+```
+
+```bash cURL
+curl -X PUT "https://paineloffice.click/p2p/extend" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer {token}" \
   -d '{
-    "extend_days": 30,
-    "package_id": 3,
-    "max_devices": 5
+    "amount": 150.01,
+    "month": 1,
+    "screen": 1
   }'
 ```
 

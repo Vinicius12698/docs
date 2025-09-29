@@ -25,32 +25,44 @@ Cria um novo usuário ou teste IPTV no sistema.
   Bearer token para autenticação
 </ParamField>
 
-<ParamField body="username" type="string" required>
+<ParamField body="userline" type="string" required>
   Nome de usuário IPTV
 </ParamField>
 
-<ParamField body="password" type="string" required>
+<ParamField body="passline" type="string" required>
   Senha do usuário
 </ParamField>
 
-<ParamField body="max_connections" type="integer">
+<ParamField body="screen" type="integer">
   Número máximo de conexões simultâneas (padrão: 1)
 </ParamField>
 
-<ParamField body="is_trial" type="boolean">
+<ParamField body="isTrial" type="boolean">
   Se é um teste gratuito (padrão: false)
 </ParamField>
 
-<ParamField body="trial_duration" type="integer">
-  Duração do teste em horas (obrigatório se is_trial=true)
+<ParamField body="month" type="number">
+  Duração em meses
 </ParamField>
 
-<ParamField body="package_id" type="integer" required>
+<ParamField body="packageId" type="string" required>
   ID do pacote IPTV
 </ParamField>
 
-<ParamField body="resale_id" type="integer" required>
-  ID da revenda
+<ParamField body="amount" type="number" required>
+  Valor do pacote
+</ParamField>
+
+<ParamField body="contact" type="string" required>
+  Informações de contato
+</ParamField>
+
+<ParamField body="whatsapp" type="string">
+  Número do WhatsApp
+</ParamField>
+
+<ParamField body="notes" type="string">
+  Observações adicionais
 </ParamField>
 
 ## Resposta
@@ -88,6 +100,45 @@ Cria um novo usuário ou teste IPTV no sistema.
     </ResponseField>
   </Expandable>
 </ResponseField>
+
+## Exemplo de Requisição
+
+<CodeGroup>
+
+```json TryIt
+{
+  "amount": 15,
+  "contact": "1111111111111111111",
+  "isTrial": false,
+  "month": 0.5,
+  "notes": "123",
+  "packageId": "24",
+  "passline": "70774455",
+  "screen": 1,
+  "userline": "229063642",
+  "whatsapp": "+55 11 11111 1111"
+}
+```
+
+```bash cURL
+curl -X POST "https://api-new.paineloffice.click/iptv" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "amount": 15,
+    "contact": "1111111111111111111",
+    "isTrial": false,
+    "month": 0.5,
+    "notes": "123",
+    "packageId": "24",
+    "passline": "70774455",
+    "screen": 1,
+    "userline": "229063642",
+    "whatsapp": "+55 11 11111 1111"
+  }'
+```
+
+</CodeGroup>
 
 ## Exemplo de Resposta
 

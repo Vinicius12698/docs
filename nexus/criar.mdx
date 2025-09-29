@@ -33,29 +33,70 @@ Cria um novo usuário ou teste Nexus no sistema.
   Senha do usuário
 </ParamField>
 
+<ParamField body="whatsapp" type="string" required>
+  WhatsApp do usuário
+</ParamField>
+
+<ParamField body="notes" type="string">
+  Observações
+</ParamField>
+
 <ParamField body="email" type="string" required>
   E-mail do usuário
 </ParamField>
 
-<ParamField body="is_trial" type="boolean">
-  Se é um teste gratuito (padrão: false)
+<ParamField body="months" type="string" required>
+  Duração em meses
 </ParamField>
 
-<ParamField body="trial_duration" type="integer">
-  Duração do teste em horas (obrigatório se is_trial=true)
+<ParamField body="sale_value" type="number" required>
+  Valor da venda
 </ParamField>
 
-<ParamField body="package_id" type="integer" required>
-  ID do pacote Nexus
+<ParamField body="screens" type="integer" required>
+  Número de telas
 </ParamField>
 
-<ParamField body="resale_id" type="integer" required>
-  ID da revenda
+<ParamField body="trial" type="boolean" required>
+  Se é um teste gratuito
 </ParamField>
 
-<ParamField body="bandwidth_limit" type="integer">
-  Limite de banda em Mbps (padrão: 100)
-</ParamField>
+## Exemplo de Requisição
+
+<CodeGroup>
+
+```json TryIt
+{
+  "username": "76725fs8242",
+  "password": "910239957",
+  "whatsapp": "+55 11 11111 1111",
+  "notes": "1111111111",
+  "email": "11111111111111111111111",
+  "months": "0.5",
+  "sale_value": 0,
+  "screens": 1,
+  "trial": false
+}
+```
+
+```bash cURL
+curl -X POST "https://api-new.paineloffice.click/nexus" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "username": "76725fs8242",
+    "password": "910239957",
+    "whatsapp": "+55 11 11111 1111",
+    "notes": "1111111111",
+    "email": "11111111111111111111111",
+    "months": "0.5",
+    "sale_value": 0,
+    "screens": 1,
+    "trial": false
+  }'
+```
+
+</CodeGroup>
 
 ## Resposta
 

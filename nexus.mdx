@@ -20,27 +20,44 @@ POST /nexus
 |-------|------|-------------|-----------|
 | `username` | string | Sim | Nome de usuário Nexus |
 | `password` | string | Sim | Senha do usuário |
+| `whatsapp` | string | Sim | WhatsApp do usuário |
+| `notes` | string | Não | Observações |
 | `email` | string | Sim | E-mail do usuário |
-| `is_trial` | boolean | Não | Se é um teste gratuito (padrão: false) |
-| `trial_duration` | integer | Não | Duração do teste em horas (obrigatório se is_trial=true) |
-| `package_id` | integer | Sim | ID do pacote Nexus |
-| `resale_id` | integer | Sim | ID da revenda |
-| `bandwidth_limit` | integer | Não | Limite de banda em Mbps (padrão: 100) |
+| `months` | string | Sim | Duração em meses |
+| `sale_value` | number | Sim | Valor da venda |
+| `screens` | integer | Sim | Número de telas |
+| `trial` | boolean | Sim | Se é um teste gratuito |
 
 ### Exemplo de Requisição
 
-```bash
+```json TryIt
+{
+  "username": "76725fs8242",
+  "password": "910239957",
+  "whatsapp": "+55 11 11111 1111",
+  "notes": "1111111111",
+  "email": "11111111111111111111111",
+  "months": "0.5",
+  "sale_value": 0,
+  "screens": 1,
+  "trial": false
+}
+```
+
+```bash cURL
 curl -X POST "https://paineloffice.click/nexus" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer {token}" \
   -d '{
-    "username": "usuario_nexus_001",
-    "password": "senha123",
-    "email": "usuario@exemplo.com",
-    "is_trial": false,
-    "package_id": 7,
-    "resale_id": 15,
-    "bandwidth_limit": 200
+    "username": "76725fs8242",
+    "password": "910239957",
+    "whatsapp": "+55 11 11111 1111",
+    "notes": "1111111111",
+    "email": "11111111111111111111111",
+    "months": "0.5",
+    "sale_value": 0,
+    "screens": 1,
+    "trial": false
   }'
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: " Estender Nexus"
-api: "POST https://api-new.paineloffice.click/nexus/extend/{id}"
+api: "POST https://api-new.paineloffice.click/nexus/extend"
 description: "Estende um usuário Nexus"
 ---
 
@@ -9,7 +9,7 @@ description: "Estende um usuário Nexus"
 <CodeGroup>
 
 ```bash Requisição
-POST /nexus/extend/{id}
+POST /nexus/extend
 Authorization: Bearer <token>
 ```
 
@@ -25,25 +25,50 @@ Estende a validade de um usuário Nexus existente.
   Bearer token para autenticação
 </ParamField>
 
-## Parâmetros de URL
-
-<ParamField path="id" type="integer" required>
-  ID do usuário Nexus
-</ParamField>
-
 ## Parâmetros do Body
 
-<ParamField body="extend_days" type="integer" required>
-  Número de dias para estender
+<ParamField body="credits" type="number" required>
+  Créditos para extensão
 </ParamField>
 
-<ParamField body="package_id" type="integer">
-  Novo ID do pacote (opcional)
+<ParamField body="screens" type="integer" required>
+  Número de telas
 </ParamField>
 
-<ParamField body="bandwidth_limit" type="integer">
-  Novo limite de banda (opcional)
+<ParamField body="username" type="string" required>
+  Nome de usuário Nexus
 </ParamField>
+
+<ParamField body="password" type="string" required>
+  Senha do usuário
+</ParamField>
+
+## Exemplo de Requisição
+
+<CodeGroup>
+
+```json TryIt
+{
+  "credits": 0.5,
+  "screens": 1,
+  "username": "mirelateste",
+  "password": "teste123"
+}
+```
+
+```bash cURL
+curl -X POST "https://api-new.paineloffice.click/nexus/extend" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "credits": 0.5,
+    "screens": 1,
+    "username": "mirelateste",
+    "password": "teste123"
+  }'
+```
+
+</CodeGroup>
 
 ## Resposta
 

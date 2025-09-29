@@ -25,20 +25,18 @@ Renova um usuário IPTV existente, estendendo sua validade.
   Bearer token para autenticação
 </ParamField>
 
-## Parâmetros de URL
-
-<ParamField path="id" type="integer" required>
-  ID do usuário IPTV
-</ParamField>
-
 ## Parâmetros do Body
 
-<ParamField body="extend_days" type="integer" required>
-  Número de dias para estender
+<ParamField body="amount" type="number" required>
+  Valor da renovação
 </ParamField>
 
-<ParamField body="package_id" type="integer">
-  Novo ID do pacote (opcional)
+<ParamField body="month" type="number" required>
+  Duração em meses
+</ParamField>
+
+<ParamField body="screen" type="integer" required>
+  Número de telas
 </ParamField>
 
 ## Resposta
@@ -70,6 +68,31 @@ Renova um usuário IPTV existente, estendendo sua validade.
     </ResponseField>
   </Expandable>
 </ResponseField>
+
+## Exemplo de Requisição
+
+<CodeGroup>
+
+```json TryIt
+{
+  "amount": 150.01,
+  "month": 1,
+  "screen": 1
+}
+```
+
+```bash cURL
+curl -X PUT "https://api-new.paineloffice.click/iptv/extend/1001" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "amount": 150.01,
+    "month": 1,
+    "screen": 1
+  }'
+```
+
+</CodeGroup>
 
 ## Exemplo de Resposta
 

@@ -25,41 +25,78 @@ Cria um novo usuário RedClub no sistema.
   Bearer token para autenticação
 </ParamField>
 
-<ParamField body="username" type="string" required>
-  Nome de usuário RedClub
+<ParamField body="email" type="string" required>
+  E-mail do usuário
+</ParamField>
+
+<ParamField body="enabled" type="boolean" required>
+  Se o usuário está habilitado
+</ParamField>
+
+<ParamField body="months" type="string" required>
+  Duração em meses
+</ParamField>
+
+<ParamField body="notes" type="string">
+  Observações
 </ParamField>
 
 <ParamField body="password" type="string" required>
   Senha do usuário
 </ParamField>
 
-<ParamField body="email" type="string" required>
-  E-mail do usuário
+<ParamField body="sale_value" type="number" required>
+  Valor da venda
 </ParamField>
 
-<ParamField body="phone" type="string">
-  Telefone do usuário
+<ParamField body="trial" type="boolean" required>
+  Se é um teste gratuito
 </ParamField>
 
-<ParamField body="is_trial" type="boolean">
-  Se é um teste gratuito (padrão: false)
+<ParamField body="username" type="string" required>
+  Nome de usuário RedClub
 </ParamField>
 
-<ParamField body="trial_duration" type="integer">
-  Duração do teste em horas (obrigatório se is_trial=true)
+<ParamField body="whatsapp" type="string" required>
+  WhatsApp do usuário
 </ParamField>
 
-<ParamField body="package_id" type="integer" required>
-  ID do pacote RedClub
-</ParamField>
+## Exemplo de Requisição
 
-<ParamField body="resale_id" type="integer" required>
-  ID da revenda
-</ParamField>
+<CodeGroup>
 
-<ParamField body="profile_type" type="string">
-  Tipo de perfil (basic/premium/vip)
-</ParamField>
+```json TryIt
+{
+  "email": "1111111111111111111111",
+  "enabled": true,
+  "months": "0.5",
+  "notes": "11111111111111111",
+  "password": "543564532",
+  "sale_value": 0,
+  "trial": false,
+  "username": "797om721012",
+  "whatsapp": "+55 11 11111 1111"
+}
+```
+
+```bash cURL
+curl -X POST "https://api-new.paineloffice.click/red-club" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "email": "1111111111111111111111",
+    "enabled": true,
+    "months": "0.5",
+    "notes": "11111111111111111",
+    "password": "543564532",
+    "sale_value": 0,
+    "trial": false,
+    "username": "797om721012",
+    "whatsapp": "+55 11 11111 1111"
+  }'
+```
+
+</CodeGroup>
 
 ## Resposta
 

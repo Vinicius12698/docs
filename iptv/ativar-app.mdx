@@ -25,20 +25,20 @@ Ativa um aplicativo IPTV específico para um usuário.
   Bearer token para autenticação
 </ParamField>
 
-<ParamField body="user_id" type="integer" required>
+<ParamField body="id_user" type="integer" required>
   ID do usuário IPTV
 </ParamField>
 
-<ParamField body="app_name" type="string" required>
-  Nome do aplicativo (ex: "smarttv", "mobile", "desktop")
+<ParamField body="nameApp" type="string" required>
+  Nome do aplicativo
 </ParamField>
 
-<ParamField body="device_id" type="string">
-  ID único do dispositivo
+<ParamField body="namePlaylist" type="string" required>
+  Nome da playlist
 </ParamField>
 
-<ParamField body="device_name" type="string">
-  Nome amigável do dispositivo
+<ParamField body="deviceKey" type="string" required>
+  Chave única do dispositivo
 </ParamField>
 
 ## Resposta
@@ -73,6 +73,33 @@ Ativa um aplicativo IPTV específico para um usuário.
     </ResponseField>
   </Expandable>
 </ResponseField>
+
+## Exemplo de Requisição
+
+<CodeGroup>
+
+```json TryIt
+{
+  "nameApp": "Brasil IPTV",
+  "namePlaylist": "Lista Exemplo",
+  "deviceKey": "12:31:23:12:31:23",
+  "id_user": 12345
+}
+```
+
+```bash cURL
+curl -X POST "https://api-new.paineloffice.click/iptv/activate/app" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "nameApp": "Brasil IPTV",
+    "namePlaylist": "Lista Exemplo",
+    "deviceKey": "12:31:23:12:31:23",
+    "id_user": 12345
+  }'
+```
+
+</CodeGroup>
 
 ## Exemplo de Resposta
 

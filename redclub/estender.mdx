@@ -1,6 +1,6 @@
 ---
 title: " Estender RedClub"
-api: "POST https://api-new.paineloffice.click/red-club/extend/{id}"
+api: "POST https://api-new.paineloffice.click/red-club/extend"
 description: "Estende o usuário RedClub"
 ---
 
@@ -9,7 +9,7 @@ description: "Estende o usuário RedClub"
 <CodeGroup>
 
 ```bash Requisição
-POST /red-club/extend/{id}
+POST /red-club/extend
 Authorization: Bearer <token>
 ```
 
@@ -25,25 +25,32 @@ Estende a validade de um usuário RedClub existente.
   Bearer token para autenticação
 </ParamField>
 
-## Parâmetros de URL
-
-<ParamField path="id" type="integer" required>
-  ID do usuário RedClub
-</ParamField>
-
 ## Parâmetros do Body
 
-<ParamField body="extend_days" type="integer" required>
-  Número de dias para estender
+<ParamField body="credits" type="number" required>
+  Créditos para extensão
 </ParamField>
 
-<ParamField body="package_id" type="integer">
-  Novo ID do pacote (opcional)
-</ParamField>
+## Exemplo de Requisição
 
-<ParamField body="profile_type" type="string">
-  Novo tipo de perfil (opcional)
-</ParamField>
+<CodeGroup>
+
+```json TryIt
+{
+  "credits": 1
+}
+```
+
+```bash cURL
+curl -X POST "https://api-new.paineloffice.click/red-club/extend" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "credits": 1
+  }'
+```
+
+</CodeGroup>
 
 ## Resposta
 

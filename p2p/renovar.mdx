@@ -1,6 +1,6 @@
 ---
 title: " Renovar P2P"
-api: "PUT https://api-new.paineloffice.click/p2p/extend/{id}"
+api: "PUT https://api-new.paineloffice.click/p2p/extend"
 description: "Renova um usuário P2P"
 ---
 
@@ -9,7 +9,7 @@ description: "Renova um usuário P2P"
 <CodeGroup>
 
 ```bash Requisição
-PUT /p2p/extend/{id}
+PUT /p2p/extend
 Authorization: Bearer <token>
 ```
 
@@ -25,25 +25,44 @@ Renova um usuário P2P existente, estendendo sua validade.
   Bearer token para autenticação
 </ParamField>
 
-## Parâmetros de URL
-
-<ParamField path="id" type="integer" required>
-  ID do usuário P2P
-</ParamField>
-
 ## Parâmetros do Body
 
-<ParamField body="extend_days" type="integer" required>
-  Número de dias para estender
+<ParamField body="amount" type="number" required>
+  Valor da renovação
 </ParamField>
 
-<ParamField body="package_id" type="integer">
-  Novo ID do pacote (opcional)
+<ParamField body="month" type="integer" required>
+  Número de meses para estender
 </ParamField>
 
-<ParamField body="max_devices" type="integer">
-  Novo limite de dispositivos (opcional)
+<ParamField body="screen" type="integer" required>
+  Número de telas
 </ParamField>
+
+## Exemplo de Requisição
+
+<CodeGroup>
+
+```json TryIt
+{
+  "amount": 150.01,
+  "month": 1,
+  "screen": 1
+}
+```
+
+```bash cURL
+curl -X PUT "https://api-new.paineloffice.click/p2p/extend" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "amount": 150.01,
+    "month": 1,
+    "screen": 1
+  }'
+```
+
+</CodeGroup>
 
 ## Resposta
 
