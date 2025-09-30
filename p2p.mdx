@@ -27,7 +27,7 @@ POST /p2p
 | `sale_value` | number | Sim | Valor da venda |
 | `typeUser` | integer | Sim | Tipo do usuário |
 | `userline` | string | Sim | Linha do usuário |
-| `whatsapp` | string | Sim | WhatsApp do usuário |
+| `whatsapp` | number | Sim | WhatsApp do usuário (apenas números) |
 
 ### Exemplo de Requisição
 
@@ -43,7 +43,7 @@ POST /p2p
   "sale_value": 0,
   "typeUser": 2,
   "userline": "364395430",
-  "whatsapp": "+55 11 11111 1111"
+  "whatsapp": 5511111111111
 }
 ```
 
@@ -62,7 +62,7 @@ curl -X POST "https://paineloffice.click/p2p" \
     "sale_value": 0,
     "typeUser": 2,
     "userline": "364395430",
-    "whatsapp": "+55 11 11111 1111"
+    "whatsapp": 5511111111111
   }'
 ```
 

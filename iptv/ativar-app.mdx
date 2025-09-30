@@ -1,11 +1,13 @@
 ---
 title: " Ativar Aplicativo"
 api: "POST https://api-new.paineloffice.click/iptv/activate/app"
-description: "Ativa aplicativo IPTV para usuário"
+description: "Ativa aplicativo IPTV para usuário ou cria teste IPTV"
 auth: "none"
 ---
 
-## Endpoint
+## Endpoints
+
+### Ativar Aplicativo
 
 <CodeGroup>
 
@@ -16,11 +18,22 @@ Authorization: Bearer <token>
 
 </CodeGroup>
 
+### Criar Teste IPTV
+
+<CodeGroup>
+
+```bash Requisição
+POST /iptv/teste
+Authorization: Bearer <token>
+```
+
+</CodeGroup>
+
 ## Descrição
 
-Ativa um aplicativo IPTV específico para um usuário.
+Ativa um aplicativo IPTV específico para um usuário ou cria um teste IPTV gratuito.
 
-## Parâmetros
+## Parâmetros - Ativar Aplicativo
 
 <ParamField query="username" type="string" required>
   Nome de usuário para autenticação
@@ -48,6 +61,48 @@ Ativa um aplicativo IPTV específico para um usuário.
 
 <ParamField body="deviceKey" type="string" required>
   Chave única do dispositivo
+</ParamField>
+
+## Parâmetros - Criar Teste IPTV
+
+<ParamField query="username" type="string" required>
+  Nome de usuário para autenticação
+</ParamField>
+
+<ParamField query="password" type="string" required>
+  Senha para autenticação
+</ParamField>
+
+<ParamField query="token" type="string" required>
+  Token de autenticação
+</ParamField>
+
+<ParamField body="userline" type="string" required>
+  Nome de usuário IPTV
+</ParamField>
+
+<ParamField body="passline" type="string" required>
+  Senha do usuário
+</ParamField>
+
+<ParamField body="screen" type="integer">
+  Número máximo de conexões simultâneas (padrão: 1)
+</ParamField>
+
+<ParamField body="packageId" type="string" required>
+  ID do pacote IPTV
+</ParamField>
+
+<ParamField body="contact" type="string" required>
+  Informações de contato
+</ParamField>
+
+<ParamField body="whatsapp" type="number">
+  Número do WhatsApp (apenas números)
+</ParamField>
+
+<ParamField body="notes" type="string">
+  Observações adicionais
 </ParamField>
 
 ## Resposta

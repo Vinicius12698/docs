@@ -66,8 +66,8 @@ Cria um novo usuário RedClub no sistema.
   Nome de usuário RedClub
 </ParamField>
 
-<ParamField body="whatsapp" type="string" required>
-  WhatsApp do usuário
+<ParamField body="whatsapp" type="number" required>
+  WhatsApp do usuário (apenas números)
 </ParamField>
 
 ## Exemplo de Requisição
@@ -84,7 +84,7 @@ Cria um novo usuário RedClub no sistema.
   "sale_value": 0,
   "trial": false,
   "username": "797om721012",
-  "whatsapp": "+55 11 11111 1111"
+  "whatsapp": 5511111111111
 }
 ```
 
@@ -101,7 +101,7 @@ curl -X POST "https://api-new.paineloffice.click/red-club" \
     "sale_value": 0,
     "trial": false,
     "username": "797om721012",
-    "whatsapp": "+55 11 11111 1111"
+    "whatsapp": 5511111111111
   }'
 ```
 

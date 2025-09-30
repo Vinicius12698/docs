@@ -20,7 +20,7 @@ POST /nexus
 |-------|------|-------------|-----------|
 | `username` | string | Sim | Nome de usuário Nexus |
 | `password` | string | Sim | Senha do usuário |
-| `whatsapp` | string | Sim | WhatsApp do usuário |
+| `whatsapp` | number | Sim | WhatsApp do usuário (apenas números) |
 | `notes` | string | Não | Observações |
 | `email` | string | Sim | E-mail do usuário |
 | `months` | string | Sim | Duração em meses |
@@ -34,7 +34,7 @@ POST /nexus
 {
   "username": "76725fs8242",
   "password": "910239957",
-  "whatsapp": "+55 11 11111 1111",
+  "whatsapp": 5511111111111,
   "notes": "1111111111",
   "email": "11111111111111111111111",
   "months": "0.5",
@@ -51,7 +51,7 @@ curl -X POST "https://paineloffice.click/nexus" \
   -d '{
     "username": "76725fs8242",
     "password": "910239957",
-    "whatsapp": "+55 11 11111 1111",
+    "whatsapp": 5511111111111,
     "notes": "1111111111",
     "email": "11111111111111111111111",
     "months": "0.5",

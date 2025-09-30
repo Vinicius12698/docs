@@ -1,11 +1,13 @@
 ---
 title: " Criar IPTV"
 api: "POST https://api-new.paineloffice.click/iptv"
-description: "Cria um usuário/teste IPTV"
+description: "Cria, renova ou ativa um usuário IPTV"
 auth: "none"
 ---
 
-## Endpoint
+## Endpoints
+
+### Criar IPTV
 
 <CodeGroup>
 
@@ -16,9 +18,42 @@ Authorization: Bearer <token>
 
 </CodeGroup>
 
+### Renovar IPTV
+
+<CodeGroup>
+
+```bash Requisição
+POST /iptv/renovar
+Authorization: Bearer <token>
+```
+
+</CodeGroup>
+
+### Ativar IPTV
+
+<CodeGroup>
+
+```bash Requisição
+POST /iptv/ativar
+Authorization: Bearer <token>
+```
+
+</CodeGroup>
+
+### Criar Teste IPTV
+
+<CodeGroup>
+
+```bash Requisição
+POST /iptv/teste
+Authorization: Bearer <token>
+```
+
+</CodeGroup>
+
 ## Descrição
 
-Cria um novo usuário ou teste IPTV no sistema.
+Cria, renova, ativa um usuário IPTV ou cria um teste IPTV gratuito no sistema.
 
 ## Parâmetros
 
@@ -66,8 +101,8 @@ Cria um novo usuário ou teste IPTV no sistema.
   Informações de contato
 </ParamField>
 
-<ParamField body="whatsapp" type="string">
-  Número do WhatsApp
+<ParamField body="whatsapp" type="number">
+  Número do WhatsApp (apenas números)
 </ParamField>
 
 <ParamField body="notes" type="string">
@@ -125,7 +160,7 @@ Cria um novo usuário ou teste IPTV no sistema.
   "passline": "70774455",
   "screen": 1,
   "userline": "229063642",
-  "whatsapp": "+55 11 11111 1111"
+  "whatsapp": 5511111111111
 }
 ```
 
@@ -143,7 +178,7 @@ curl -X POST "https://api-new.paineloffice.click/iptv" \
     "passline": "70774455",
     "screen": 1,
     "userline": "229063642",
-    "whatsapp": "+55 11 11111 1111"
+    "whatsapp": 5511111111111
   }'
 ```
 

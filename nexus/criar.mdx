@@ -42,8 +42,8 @@ Cria um novo usuário ou teste Nexus no sistema.
   Senha do usuário
 </ParamField>
 
-<ParamField body="whatsapp" type="string" required>
-  WhatsApp do usuário
+<ParamField body="whatsapp" type="number" required>
+  WhatsApp do usuário (apenas números)
 </ParamField>
 
 <ParamField body="notes" type="string">
@@ -78,7 +78,7 @@ Cria um novo usuário ou teste Nexus no sistema.
 {
   "username": "76725fs8242",
   "password": "910239957",
-  "whatsapp": "+55 11 11111 1111",
+  "whatsapp": 5511111111111,
   "notes": "1111111111",
   "email": "11111111111111111111111",
   "months": "0.5",
@@ -95,7 +95,7 @@ curl -X POST "https://api-new.paineloffice.click/nexus" \
   -d '{
     "username": "76725fs8242",
     "password": "910239957",
-    "whatsapp": "+55 11 11111 1111",
+    "whatsapp": 5511111111111,
     "notes": "1111111111",
     "email": "11111111111111111111111",
     "months": "0.5",

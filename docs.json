@@ -32,6 +32,7 @@
         "group": "IPTV",
         "pages": [
           "iptv/criar",
+          "iptv/criar-teste",
           "iptv/renovar",
           "iptv/ativar-app"
         ]
