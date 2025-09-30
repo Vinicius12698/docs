@@ -1,7 +1,7 @@
 ---
 title: " Gerenciar Token"
-api: "POST https://api-new.paineloffice.click/resale/token/fixed"
-description: "Fixar ou liberar token da revenda"
+api: "PUT https://api-new.paineloffice.click/resale/token/fixed"
+description: "Fixar  token da revenda"
 auth: "none"
 ---
 
@@ -9,9 +9,9 @@ auth: "none"
 
 ```json Exemplo de Body
 {
-  "username": "usuario_revenda",
-  "password": "senha123",
-  "token": "seu_token_aqui"
+  "id": 0,
+  "success": true,
+  "is_fixed": 0
 }
 ```
 
@@ -22,7 +22,7 @@ auth: "none"
 <CodeGroup>
 
 ```bash Requisição
-POST /resale/token/fixed
+PUT /resale/token/fixed
 Authorization: Bearer <token>
 ```
 
@@ -34,18 +34,29 @@ Fixa ou libera o token de uma revenda específica.
 
 ## Parâmetros
 
-<ParamField body="username" type="string" required>
+<ParamField query="username" type="string" required>
   Nome de usuário para autenticação
 </ParamField>
 
-<ParamField body="password" type="string" required>
+<ParamField query="password" type="string" required>
   Senha para autenticação
 </ParamField>
 
-<ParamField body="token" type="string" required>
+<ParamField query="token" type="string" required>
   Token de autenticação
 </ParamField>
 
+<ParamField body="id" type="integer" required>
+  ID da revenda
+</ParamField>
+
+<ParamField body="success" type="boolean" required>
+  Status de sucesso da operação
+</ParamField>
+
+<ParamField body="is_fixed" type="integer" required>
+  Status do token (1 para fixar, 0 para liberar)
+</ParamField>
 
 ## Resposta
 
