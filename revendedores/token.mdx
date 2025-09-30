@@ -9,9 +9,7 @@ auth: "none"
 
 ```json Exemplo de Body
 {
-  "id": 0,
-  "success": true,
-  "is_fixed": 0
+  "fixed": 1
 }
 ```
 
@@ -22,8 +20,8 @@ auth: "none"
 <CodeGroup>
 
 ```bash Requisição
-PUT /resale/token/fixed
-Authorization: Bearer <token>
+PUT /resale/token/fixed?username={username}&password={password}&token={token}
+Content-Type: application/json
 ```
 
 </CodeGroup>
@@ -46,40 +44,22 @@ Fixa ou libera o token de uma revenda específica.
   Token de autenticação
 </ParamField>
 
-<ParamField body="id" type="integer" required>
-  ID da revenda
-</ParamField>
-
-<ParamField body="success" type="boolean" required>
-  Status de sucesso da operação
-</ParamField>
-
-<ParamField body="is_fixed" type="integer" required>
+<ParamField body="fixed" type="integer" required>
   Status do token (1 para fixar, 0 para liberar)
 </ParamField>
 
 ## Resposta
 
+<ResponseField name="id" type="integer">
+  ID da revenda
+</ResponseField>
+
 <ResponseField name="success" type="boolean">
   Indica se a operação foi bem-sucedida
 </ResponseField>
 
-<ResponseField name="message" type="string">
-  Mensagem de confirmação
-</ResponseField>
-
-<ResponseField name="data" type="object">
-  <Expandable title="properties">
-    <ResponseField name="resale_id" type="integer">
-      ID da revenda
-    </ResponseField>
-    <ResponseField name="token_fixed" type="boolean">
-      Status do token (fixado/liberado)
-    </ResponseField>
-    <ResponseField name="updated_at" type="string">
-      Data da atualização
-    </ResponseField>
-  </Expandable>
+<ResponseField name="is_fixed" type="integer">
+  Status do token (1 = fixado, 0 = liberado)
 </ResponseField>
 
 ## Exemplo de Resposta
@@ -87,12 +67,8 @@ Fixa ou libera o token de uma revenda específica.
 **Sucesso (200 OK):**
 ```json
 {
+  "id": 15,
   "success": true,
-  "message": "Token fixado com sucesso",
-  "data": {
-    "resale_id": 15,
-    "token_fixed": true,
-    "updated_at": "2024-01-15T11:30:00Z"
-  }
+  "is_fixed": 1
 }
 ```
