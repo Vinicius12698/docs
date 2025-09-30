@@ -10,7 +10,6 @@ auth: "none"
 ```json Exemplo de Body
 {
   "credits": "20",
-  "id": 1934449,
   "reason": "213123",
   "sale": 100.02
 }
@@ -35,6 +34,10 @@ Adiciona ou remove créditos de uma revenda específica.
 
 ## Parâmetros
 
+<ParamField path="id" type="integer" required>
+  ID da revenda
+</ParamField>
+
 <ParamField query="username" type="string" required>
   Nome de usuário para autenticação
 </ParamField>
@@ -51,10 +54,6 @@ Adiciona ou remove créditos de uma revenda específica.
 
 <ParamField body="credits" type="string" required>
   Quantidade de créditos
-</ParamField>
-
-<ParamField body="id" type="integer" required>
-  ID da revenda
 </ParamField>
 
 <ParamField body="reason" type="string">
