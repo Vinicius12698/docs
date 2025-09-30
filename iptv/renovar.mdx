@@ -2,6 +2,7 @@
 title: " Renovar IPTV"
 api: "PUT https://api-new.paineloffice.click/iptv/extend/{id}"
 description: "Renova um usuário IPTV"
+auth: "none"
 ---
 
 ## Endpoint
@@ -21,8 +22,16 @@ Renova um usuário IPTV existente, estendendo sua validade.
 
 ## Parâmetros
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token para autenticação
+<ParamField query="username" type="string" required>
+  Nome de usuário para autenticação
+</ParamField>
+
+<ParamField query="password" type="string" required>
+  Senha para autenticação
+</ParamField>
+
+<ParamField query="token" type="string" required>
+  Token de autenticação
 </ParamField>
 
 ## Parâmetros do Body

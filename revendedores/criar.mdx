@@ -2,6 +2,7 @@
 title: " Criar Revenda"
 api: "POST https://api-new.paineloffice.click/resale"
 description: "Cria uma nova revenda"
+auth: "none"
 ---
 
 <RequestExample>
@@ -39,8 +40,16 @@ Cria uma nova revenda no sistema com os dados fornecidos.
 
 ## Parâmetros
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token para autenticação
+<ParamField query="username" type="string" required>
+  Nome de usuário para autenticação
+</ParamField>
+
+<ParamField query="password" type="string" required>
+  Senha para autenticação
+</ParamField>
+
+<ParamField query="token" type="string" required>
+  Token de autenticação
 </ParamField>
 
 <ParamField body="user" type="string" required>

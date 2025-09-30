@@ -2,6 +2,7 @@
 title: " Renovar P2P"
 api: "PUT https://api-new.paineloffice.click/p2p/extend"
 description: "Renova um usuário P2P"
+auth: "none"
 ---
 
 ## Endpoint
@@ -21,8 +22,16 @@ Renova um usuário P2P existente, estendendo sua validade.
 
 ## Parâmetros
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token para autenticação
+<ParamField query="username" type="string" required>
+  Nome de usuário para autenticação
+</ParamField>
+
+<ParamField query="password" type="string" required>
+  Senha para autenticação
+</ParamField>
+
+<ParamField query="token" type="string" required>
+  Token de autenticação
 </ParamField>
 
 ## Parâmetros do Body

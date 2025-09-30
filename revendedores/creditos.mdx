@@ -2,6 +2,7 @@
 title: " Gerenciar Créditos"
 api: "PATCH https://api-new.paineloffice.click/resale/add-credits/{id}"
 description: "Adiciona ou remove créditos de uma revenda"
+auth: "none"
 ---
 
 <RequestExample>
@@ -34,8 +35,16 @@ Adiciona ou remove créditos de uma revenda específica.
 
 ## Parâmetros
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token para autenticação
+<ParamField query="username" type="string" required>
+  Nome de usuário para autenticação
+</ParamField>
+
+<ParamField query="password" type="string" required>
+  Senha para autenticação
+</ParamField>
+
+<ParamField query="token" type="string" required>
+  Token de autenticação
 </ParamField>
 
 ## Parâmetros do Body

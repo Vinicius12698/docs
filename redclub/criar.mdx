@@ -2,6 +2,7 @@
 title: " Criar RedClub"
 api: "POST https://api-new.paineloffice.click/red-club"
 description: "Cria usuário RedClub"
+auth: "none"
 ---
 
 ## Endpoint
@@ -21,8 +22,16 @@ Cria um novo usuário RedClub no sistema.
 
 ## Parâmetros
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token para autenticação
+<ParamField query="username" type="string" required>
+  Nome de usuário para autenticação
+</ParamField>
+
+<ParamField query="password" type="string" required>
+  Senha para autenticação
+</ParamField>
+
+<ParamField query="token" type="string" required>
+  Token de autenticação
 </ParamField>
 
 <ParamField body="email" type="string" required>

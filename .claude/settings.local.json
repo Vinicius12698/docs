@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Vinicius/Desktop/mintify//**)",
+      "Read(//c/Users/Vinicius/Desktop//**)",
+      "Read(//c/Users/Vinicius/Desktop/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

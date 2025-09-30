@@ -2,6 +2,7 @@
 title: " Gerenciar Token"
 api: "PUT https://api-new.paineloffice.click/resale/token/fixed"
 description: "Fixar ou liberar token da revenda"
+auth: "none"
 ---
 
 <RequestExample>
@@ -33,8 +34,16 @@ Fixa ou libera o token de uma revenda específica.
 
 ## Parâmetros
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token para autenticação
+<ParamField query="username" type="string" required>
+  Nome de usuário para autenticação
+</ParamField>
+
+<ParamField query="password" type="string" required>
+  Senha para autenticação
+</ParamField>
+
+<ParamField query="token" type="string" required>
+  Token de autenticação
 </ParamField>
 
 <ParamField body="id" type="integer" required>

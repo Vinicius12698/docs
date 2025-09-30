@@ -7,8 +7,14 @@ Cria uma nova revenda no sistema com os dados fornecidos.
 
 ### Método e Rota
 ```
-POST /resale
+POST /resale?authorization=Bearer {token}
 ```
+
+### Parâmetros Query String
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+|-----------|------|-------------|-----------|
+| `authorization` | string | Sim | Token de autenticação no formato: Bearer {token} |
 
 ### Parâmetros do Corpo da Requisição
 
@@ -23,9 +29,8 @@ POST /resale
 ### Exemplo de Requisição
 
 ```bash
-curl -X POST "https://paineloffice.click/resale" \
+curl -X POST "https://paineloffice.click/resale?authorization=Bearer%20{token}" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer {token}" \
   -d '{
     "name": "Revenda Premium",
     "email": "contato@revendapremium.com",
@@ -61,8 +66,14 @@ Adiciona ou remove créditos de uma revenda específica.
 
 ### Método e Rota
 ```
-PATCH /resale/add-credits/{id}
+PATCH /resale/add-credits/{id}?authorization=Bearer {token}
 ```
+
+### Parâmetros Query String
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+|-----------|------|-------------|-----------|
+| `authorization` | string | Sim | Token de autenticação no formato: Bearer {token} |
 
 ### Parâmetros da URL
 
@@ -80,9 +91,8 @@ PATCH /resale/add-credits/{id}
 ### Exemplo de Requisição
 
 ```bash
-curl -X PATCH "https://paineloffice.click/resale/add-credits/15" \
+curl -X PATCH "https://paineloffice.click/resale/add-credits/15?authorization=Bearer%20{token}" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer {token}" \
   -d '{
     "credits": 50,
     "reason": "Recarga manual"
@@ -114,8 +124,14 @@ Fixa ou libera o token de uma revenda específica.
 
 ### Método e Rota
 ```
-PUT /resale/token/fixed
+PUT /resale/token/fixed?authorization=Bearer {token}
 ```
+
+### Parâmetros Query String
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+|-----------|------|-------------|-----------|
+| `authorization` | string | Sim | Token de autenticação no formato: Bearer {token} |
 
 ### Parâmetros do Corpo da Requisição
 
@@ -127,9 +143,8 @@ PUT /resale/token/fixed
 ### Exemplo de Requisição
 
 ```bash
-curl -X PUT "https://paineloffice.click/resale/token/fixed" \
+curl -X PUT "https://paineloffice.click/resale/token/fixed?authorization=Bearer%20{token}" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer {token}" \
   -d '{
     "resale_id": 15,
     "fixed": true
@@ -159,8 +174,14 @@ Ativa o serviço Ultra para uma revenda específica.
 
 ### Método e Rota
 ```
-PATCH /resale/ultra/{resaleId}/active
+PATCH /resale/ultra/{resaleId}/active?authorization=Bearer {token}
 ```
+
+### Parâmetros Query String
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+|-----------|------|-------------|-----------|
+| `authorization` | string | Sim | Token de autenticação no formato: Bearer {token} |
 
 ### Parâmetros da URL
 
@@ -171,9 +192,8 @@ PATCH /resale/ultra/{resaleId}/active
 ### Exemplo de Requisição
 
 ```bash
-curl -X PATCH "https://paineloffice.click/resale/ultra/15/active" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer {token}"
+curl -X PATCH "https://paineloffice.click/resale/ultra/15/active?authorization=Bearer%20{token}" \
+  -H "Content-Type: application/json"
 ```
 
 ### Exemplo de Resposta
@@ -199,8 +219,14 @@ Desativa o serviço Ultra para uma revenda específica.
 
 ### Método e Rota
 ```
-PATCH /resale/ultra/{resaleId}/disable
+PATCH /resale/ultra/{resaleId}/disable?authorization=Bearer {token}
 ```
+
+### Parâmetros Query String
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+|-----------|------|-------------|-----------|
+| `authorization` | string | Sim | Token de autenticação no formato: Bearer {token} |
 
 ### Parâmetros da URL
 
@@ -211,9 +237,8 @@ PATCH /resale/ultra/{resaleId}/disable
 ### Exemplo de Requisição
 
 ```bash
-curl -X PATCH "https://paineloffice.click/resale/ultra/15/disable" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer {token}"
+curl -X PATCH "https://paineloffice.click/resale/ultra/15/disable?authorization=Bearer%20{token}" \
+  -H "Content-Type: application/json"
 ```
 
 ### Exemplo de Resposta
