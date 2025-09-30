@@ -152,7 +152,7 @@ Cria, renova, ativa um usuário IPTV ou cria um teste IPTV gratuito no sistema.
 ```json TryIt
 {
   "amount": 15,
-  "contact": "1111111111111111111",
+  "contact": "teste@gmail.com",
   "isTrial": false,
   "month": 0.5,
   "notes": "123",
@@ -170,7 +170,7 @@ curl -X POST "https://api-new.paineloffice.click/iptv" \
   -H "Authorization: Bearer <token>" \
   -d '{
     "amount": 15,
-    "contact": "1111111111111111111",
+    "contact": "teste@gmail.com",
     "isTrial": false,
     "month": 0.5,
     "notes": "123",
@@ -188,7 +188,6 @@ curl -X POST "https://api-new.paineloffice.click/iptv" \
 
 ```json
 {
-  "success": true,
   "message": "Usuário IPTV criado com sucesso",
   "data": {
     "id": 1001,

@@ -48,11 +48,6 @@ Fixa ou libera o token de uma revenda específica.
   Status do token (1 para fixar, 0 para liberar)
 </ParamField>
 
-## Resposta
-
-<ResponseField name="id" type="integer">
-  ID da revenda
-</ResponseField>
 
 <ResponseField name="success" type="boolean">
   Indica se a operação foi bem-sucedida
@@ -67,8 +62,6 @@ Fixa ou libera o token de uma revenda específica.
 **Sucesso (200 OK):**
 ```json
 {
-  "id": 15,
-  "success": true,
   "is_fixed": 1
 }
 ```

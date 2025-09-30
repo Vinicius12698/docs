@@ -104,7 +104,7 @@ Cria um novo teste IPTV gratuito no sistema.
 
 ```json TryIt
 {
-  "contact": "1111111111111111111",
+  "contact": "teste@gmail.com",
   "notes": "Teste gratuito",
   "packageId": "24",
   "passline": "70774455",
@@ -119,7 +119,7 @@ curl -X POST "https://api-new.paineloffice.click/iptv/teste" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
   -d '{
-    "contact": "1111111111111111111",
+    "contact": "teste@gmail.com",
     "notes": "Teste gratuito",
     "packageId": "24",
     "passline": "70774455",
@@ -135,7 +135,6 @@ curl -X POST "https://api-new.paineloffice.click/iptv/teste" \
 
 ```json
 {
-  "success": true,
   "message": "Teste IPTV criado com sucesso",
   "data": {
     "id": 1002,
