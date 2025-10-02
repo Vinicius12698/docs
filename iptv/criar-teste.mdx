@@ -1,6 +1,6 @@
 ---
 title: " Criar Teste IPTV"
-api: "POST https://api-new.paineloffice.click/iptv/teste"
+api: "POST https://api-new.paineloffice.click/iptv"
 description: "Cria um teste IPTV gratuito"
 auth: "none"
 ---
@@ -10,7 +10,7 @@ auth: "none"
 <CodeGroup>
 
 ```bash Requisição
-POST /iptv/teste
+POST /iptv
 Authorization: Bearer <token>
 ```
 
@@ -34,28 +34,20 @@ Cria um novo teste IPTV gratuito no sistema.
   Token de autenticação
 </ParamField>
 
-<ParamField body="userline" type="string" required>
-  Nome de usuário IPTV
+<ParamField body="isTrial" type="boolean" required default="true">
+  Sempre true
 </ParamField>
 
-<ParamField body="passline" type="string" required>
-  Senha do usuário
+<ParamField body="screen" type="integer" required default="1">
+  Número máximo de conexões simultâneas (fixo em 1)
 </ParamField>
 
-<ParamField body="screen" type="integer">
-  Número máximo de conexões simultâneas (padrão: 1)
-</ParamField>
-
-<ParamField body="packageId" type="string" required>
+<ParamField body="packageId" type="integer" required>
   ID do pacote IPTV
 </ParamField>
 
-<ParamField body="contact" type="string" required>
-  Informações de e-email
-</ParamField>
-
-<ParamField body="whatsapp" type="number">
-  Número do WhatsApp (apenas números)
+<ParamField body="whatsapp" type="string">
+  Número do WhatsApp (opcional)
 </ParamField>
 
 <ParamField body="notes" type="string">
@@ -104,28 +96,24 @@ Cria um novo teste IPTV gratuito no sistema.
 
 ```json TryIt
 {
-  "contact": "teste@gmail.com",
-  "notes": "Teste gratuito",
-  "packageId": "24",
-  "passline": "70774455",
+  "isTrial": true,
+  "notes": "teste-auto",
+  "packageId": 24,
   "screen": 1,
-  "userline": "229063642",
-  "whatsapp": 5511111111111
+  "whatsapp": ""
 }
 ```
 
 ```bash cURL
-curl -X POST "https://api-new.paineloffice.click/iptv/teste" \
+curl -X POST "https://api-new.paineloffice.click/iptv" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
   -d '{
-    "contact": "teste@gmail.com",
-    "notes": "Teste gratuito",
-    "packageId": "24",
-    "passline": "70774455",
+    "isTrial": true,
+    "notes": "teste-auto",
+    "packageId": 24,
     "screen": 1,
-    "userline": "229063642",
-    "whatsapp": 5511111111111
+    "whatsapp": ""
   }'
 ```
 
