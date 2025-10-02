@@ -22,6 +22,10 @@ Renova um usuário IPTV existente, estendendo sua validade.
 
 ## Parâmetros
 
+<ParamField path="id" type="integer" required>
+  ID do usuário IPTV que será renovado
+</ParamField>
+
 <ParamField query="username" type="string" required>
   Nome de usuário para autenticação
 </ParamField>
@@ -43,7 +47,7 @@ Renova um usuário IPTV existente, estendendo sua validade.
 </ParamField>
 
 <ParamField body="screen" type="integer" required>
-  Só é possivel apenas 4 telas 
+  Só é possivel até  4 telas 
 </ParamField>
 
 ## Resposta
