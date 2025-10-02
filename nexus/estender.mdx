@@ -1,6 +1,6 @@
 ---
-title: " Estender Nexus"
-api: "POST https://api-new.paineloffice.click/nexus/extend"
+title: " Renovar  Nexus"
+api: "POST https://api-new.paineloffice.click/nexus/extend/{id}"
 description: "Estende um usuário Nexus"
 auth: "none"
 ---
@@ -10,7 +10,7 @@ auth: "none"
 <CodeGroup>
 
 ```bash Requisição
-POST /nexus/extend
+POST /nexus/extend/{id}
 Authorization: Bearer <token>
 ```
 
@@ -34,47 +34,25 @@ Estende a validade de um usuário Nexus existente.
   Token de autenticação
 </ParamField>
 
-## Parâmetros do Body
+<ParamField path="id" type="string" required>
+  ID do usuário Nexus
+</ParamField>
 
-<ParamField body="credits" type="number" required>
+<ParamField query="credits" type="number" required>
   Créditos para extensão
 </ParamField>
 
-<ParamField body="screens" type="integer" required>
+<ParamField query="screens" type="integer" required>
   Número de telas
-</ParamField>
-
-<ParamField body="username" type="string" required>
-  Nome de usuário Nexus
-</ParamField>
-
-<ParamField body="password" type="string" required>
-  Senha do usuário
 </ParamField>
 
 ## Exemplo de Requisição
 
 <CodeGroup>
 
-```json TryIt
-{
-  "credits": 0.5,
-  "screens": 1,
-  "username": "mirelateste",
-  "password": "teste123"
-}
-```
-
 ```bash cURL
-curl -X POST "https://api-new.paineloffice.click/nexus/extend" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer <token>" \
-  -d '{
-    "credits": 0.5,
-    "screens": 1,
-    "username": "mirelateste",
-    "password": "teste123"
-  }'
+curl -X POST "https://api-new.paineloffice.click/nexus/extend/{id}?credits=0.5&screens=1" \
+  -H "Authorization: Bearer <token>"
 ```
 
 </CodeGroup>

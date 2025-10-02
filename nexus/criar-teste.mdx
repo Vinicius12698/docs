@@ -1,7 +1,7 @@
 ---
-title: "Criar Usuário Nexus"
+title: "Criar Teste Nexus"
 api: "POST https://api-new.paineloffice.click/nexus"
-description: "Cria um novo usuário Nexus no sistema (trial: false)"
+description: "Cria um teste gratuito Nexus no sistema (trial: true)"
 auth: "none"
 ---
 
@@ -18,7 +18,7 @@ Authorization: Bearer <token>
 
 ## Descrição
 
-Cria um novo usuário Nexus no sistema. Esta é a mesma rota usada para criar testes Nexus, mas com `trial: false` para usuários pagos.
+Cria um novo teste gratuito Nexus no sistema. Esta é a mesma rota usada para criar usuários Nexus, mas com `trial: true` para testes gratuitos.
 
 ## Parâmetros
 
@@ -66,8 +66,8 @@ Cria um novo usuário Nexus no sistema. Esta é a mesma rota usada para criar te
   Número de telas
 </ParamField>
 
-<ParamField body="trial" type="boolean" required>
-  Se é um teste gratuito
+<ParamField body="trial" type="boolean" required default="true">
+  Sempre `true` para testes gratuitos (valor fixo)
 </ParamField>
 
 ## Exemplo de Requisição
@@ -82,7 +82,7 @@ Cria um novo usuário Nexus no sistema. Esta é a mesma rota usada para criar te
   "password": "588497601",
   "sale_value": 0,
   "screens": 1,
-  "trial": false,
+  "trial": true,
   "username": "20868876qn7",
   "whatsapp": ""
 }
@@ -99,7 +99,7 @@ curl -X POST "https://api-new.paineloffice.click/nexus" \
     "password": "588497601",
     "sale_value": 0,
     "screens": 1,
-    "trial": false,
+    "trial": true,
     "username": "20868876qn7",
     "whatsapp": ""
   }'
@@ -120,7 +120,7 @@ curl -X POST "https://api-new.paineloffice.click/nexus" \
 <ResponseField name="data" type="object">
   <Expandable title="properties">
     <ResponseField name="id" type="integer">
-      ID do usuário Nexus criado
+      ID do teste Nexus criado
     </ResponseField>
     <ResponseField name="username" type="string">
       Nome de usuário Nexus
@@ -129,13 +129,13 @@ curl -X POST "https://api-new.paineloffice.click/nexus" \
       E-mail do usuário
     </ResponseField>
     <ResponseField name="status" type="string">
-      Status do usuário
+      Status do teste
     </ResponseField>
     <ResponseField name="bandwidth_limit" type="integer">
       Limite de banda
     </ResponseField>
     <ResponseField name="expires_at" type="string">
-      Data de expiração
+      Data de expiração do teste
     </ResponseField>
     <ResponseField name="server_url" type="string">
       URL do servidor Nexus
@@ -150,11 +150,11 @@ curl -X POST "https://api-new.paineloffice.click/nexus" \
 
 ```json
 {
-  "message": "Usuário Nexus criado com sucesso",
+  "message": "Teste Nexus criado com sucesso",
   "data": {
     "id": 3001,
-    "username": "usuario_nexus_001",
-    "email": "usuario@exemplo.com",
+    "username": "teste_nexus_001",
+    "email": "teste@exemplo.com",
     "status": "active",
     "bandwidth_limit": 200,
     "expires_at": "2024-02-15T10:30:00Z",

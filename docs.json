@@ -41,6 +41,7 @@
         "group": "P2P",
         "pages": [
           "p2p/criar",
+          "p2p/criar-teste",
           "p2p/renovar"
         ]
       },
@@ -48,6 +49,7 @@
         "group": "Nexus",
         "pages": [
           "nexus/criar",
+          "nexus/criar-teste",
           "nexus/estender"
         ]
       },

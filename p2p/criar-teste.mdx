@@ -1,7 +1,7 @@
 ---
-title: "Criar Usuário P2P"
+title: "Criar Teste P2P"
 api: "POST https://api-new.paineloffice.click/p2p"
-description: "Cria um novo usuário P2P no sistema (isTrial: false)"
+description: "Cria um teste gratuito P2P no sistema"
 auth: "none"
 ---
 
@@ -18,7 +18,7 @@ Authorization: Bearer <token>
 
 ## Descrição
 
-Cria um novo usuário P2P no sistema. Esta é a mesma rota usada para criar testes P2P, mas com `isTrial: false` para usuários pagos.
+Cria um novo teste gratuito P2P no sistema. Esta é a mesma rota usada para criar usuários P2P, mas com `isTrial: true` para testes gratuitos.
 
 ## Parâmetros
 
@@ -34,41 +34,27 @@ Cria um novo usuário P2P no sistema. Esta é a mesma rota usada para criar test
   Token de autenticação
 </ParamField>
 
-<ParamField body="isTrial" type="boolean" required>
-  Se é um teste gratuito
-</ParamField>
-
-<ParamField body="month" type="number" required>
-  Duração em meses
+<ParamField body="isTrial" type="boolean" required default="true">
+  Sempre `true` para testes gratuitos (valor fixo)
 </ParamField>
 
 <ParamField body="notes" type="string">
-  Observações
+  Observações sobre o teste
 </ParamField>
 
 <ParamField body="packageId" type="string" required>
-  ID do pacote P2P
-</ParamField>
-
-<ParamField body="passline" type="string" required>
-  Senha de linha
-</ParamField>
-
-<ParamField body="sale_value" type="number" required>
-  Valor da venda
+  ID do pacote P2P. Veja a lista de pacotes disponíveis abaixo.
 </ParamField>
 
 <ParamField body="typeUser" type="integer" required>
-  Tipo do usuário
+  Tipo do usuário (fixo: 2)
 </ParamField>
 
-<ParamField body="userline" type="string" required>
-  Linha do usuário
-</ParamField>
+## Pacotes Disponíveis
 
-<ParamField body="whatsapp" type="number" required>
-  WhatsApp do usuário (apenas números)
-</ParamField>
+| ID do Pacote | Nome/Descrição |
+|--------------|----------------|
+| `5da17892133a1d61888029aa` | Pacote Padrão P2P |
 
 ## Exemplo de Requisição
 
@@ -76,15 +62,10 @@ Cria um novo usuário P2P no sistema. Esta é a mesma rota usada para criar test
 
 ```json TryIt
 {
-  "isTrial": false,
-  "month": 0.5,
+  "isTrial": true,
   "notes": "teste",
   "packageId": "5da17892133a1d61888029aa",
-  "passline": "17733172",
-  "sale_value": 0,
-  "typeUser": 2,
-  "userline": "364395430",
-  "whatsapp": 5511111111111
+  "typeUser": 2
 }
 ```
 
@@ -93,15 +74,10 @@ curl -X POST "https://api-new.paineloffice.click/p2p" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
   -d '{
-    "isTrial": false,
-    "month": 0.5,
+    "isTrial": true,
     "notes": "teste",
     "packageId": "5da17892133a1d61888029aa",
-    "passline": "17733172",
-    "sale_value": 0,
-    "typeUser": 2,
-    "userline": "364395430",
-    "whatsapp": 5511111111111
+    "typeUser": 2
   }'
 ```
 
@@ -120,19 +96,19 @@ curl -X POST "https://api-new.paineloffice.click/p2p" \
 <ResponseField name="data" type="object">
   <Expandable title="properties">
     <ResponseField name="id" type="integer">
-      ID do usuário P2P criado
+      ID do teste P2P criado
     </ResponseField>
     <ResponseField name="username" type="string">
       Nome de usuário P2P
     </ResponseField>
     <ResponseField name="status" type="string">
-      Status do usuário
+      Status do teste
     </ResponseField>
     <ResponseField name="max_devices" type="integer">
       Número máximo de dispositivos
     </ResponseField>
     <ResponseField name="expires_at" type="string">
-      Data de expiração
+      Data de expiração do teste
     </ResponseField>
     <ResponseField name="server_url" type="string">
       URL do servidor P2P
@@ -147,12 +123,12 @@ curl -X POST "https://api-new.paineloffice.click/p2p" \
 
 ```json
 {
-  "message": "Usuário P2P criado com sucesso",
+  "message": "Teste P2P criado com sucesso",
   "data": {
     "id": 2001,
-    "username": "usuario_p2p_001",
+    "username": "teste_p2p_001",
     "status": "active",
-    "max_devices": 3,
+    "max_devices": 1,
     "expires_at": "2024-02-15T10:30:00Z",
     "server_url": "http://p2p.servidor.com:8080",
     "streaming_key": "p2p_key_abc123def456"
