@@ -5,9 +5,7 @@ description: "Renova um usuário IPTV"
 auth: "none"
 ---
 
-## Endpoints
-
-### Renovar IPTV
+## Endpoint
 
 <CodeGroup>
 
@@ -18,22 +16,11 @@ Authorization: Bearer <token>
 
 </CodeGroup>
 
-### Criar Teste IPTV
-
-<CodeGroup>
-
-```bash Requisição
-POST /iptv/teste
-Authorization: Bearer <token>
-```
-
-</CodeGroup>
-
 ## Descrição
 
-Renova um usuário IPTV existente, estendendo sua validade, ou cria um teste IPTV gratuito.
+Renova um usuário IPTV existente, estendendo sua validade.
 
-## Parâmetros - Renovar IPTV
+## Parâmetros
 
 <ParamField query="username" type="string" required>
   Nome de usuário para autenticação
@@ -46,8 +33,6 @@ Renova um usuário IPTV existente, estendendo sua validade, ou cria um teste IPT
 <ParamField query="token" type="string" required>
   Token de autenticação
 </ParamField>
-
-## Parâmetros do Body - Renovar IPTV
 
 <ParamField body="amount" type="number" required>
   Valor da renovação
@@ -58,49 +43,7 @@ Renova um usuário IPTV existente, estendendo sua validade, ou cria um teste IPT
 </ParamField>
 
 <ParamField body="screen" type="integer" required>
-  Número de telas
-</ParamField>
-
-## Parâmetros - Criar Teste IPTV
-
-<ParamField query="username" type="string" required>
-  Nome de usuário para autenticação
-</ParamField>
-
-<ParamField query="password" type="string" required>
-  Senha para autenticação
-</ParamField>
-
-<ParamField query="token" type="string" required>
-  Token de autenticação
-</ParamField>
-
-<ParamField body="userline" type="string" required>
-  Nome de usuário IPTV
-</ParamField>
-
-<ParamField body="passline" type="string" required>
-  Senha do usuário
-</ParamField>
-
-<ParamField body="screen" type="integer">
-  Número máximo de conexões simultâneas (padrão: 1)
-</ParamField>
-
-<ParamField body="packageId" type="string" required>
-  ID do pacote IPTV
-</ParamField>
-
-<ParamField body="contact" type="string" required>
-  Informações de contato
-</ParamField>
-
-<ParamField body="whatsapp" type="number">
-  Número do WhatsApp (apenas números)
-</ParamField>
-
-<ParamField body="notes" type="string">
-  Observações adicionais
+  Só é possivel apenas 4 telas 
 </ParamField>
 
 ## Resposta

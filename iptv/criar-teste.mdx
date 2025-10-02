@@ -43,7 +43,25 @@ Cria um novo teste IPTV gratuito no sistema.
 </ParamField>
 
 <ParamField body="packageId" type="integer" required>
-  ID do pacote IPTV
+  Selecione o pacote IPTV
+  <enum>
+    <value label="COMPLETO">24</value>
+    <value label="TESTE (SEM ESPORTIVOS E ABERTOS)">25</value>
+    <value label="COMPLETO (SEM ADULTOS)">26</value>
+    <value label="COMPLETO (SEM INTERNACIONAIS)">27</value>
+    <value label="SOMENTE VODS E ADULTOS">28</value>
+    <value label="SOMENTE VODS (SEM ADULTOS)">29</value>
+    <value label="SOMENTE CANAIS E ADULTOS (SEM VODS)">30</value>
+    <value label="SOMENTE CANAIS (SEM ADULTOS E SEM VODS)">31</value>
+    <value label="SOMENTE CANAIS ESPORTIVOS E ADULTOS">32</value>
+    <value label="CANAIS ESPORTIVOS (SEM ADULTO)">33</value>
+    <value label="CANAIS INTERNACIONAIS">34</value>
+    <value label="INTERNACIONAIS E ADULTOS">35</value>
+    <value label="PACOTE CAMERAS (PLAY STORE)">36</value>
+    <value label="COMPLETO (SEM INTER SEM ADULTOS)">37</value>
+    <value label="Sem Conteúdo">38</value>
+    <value label="COMPLETO SEM 24H">39</value>
+  </enum>
 </ParamField>
 
 <ParamField body="whatsapp" type="string">
