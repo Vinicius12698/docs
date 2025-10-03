@@ -34,36 +34,8 @@ Cria um novo teste gratuito Nexus no sistema. Esta é a mesma rota usada para cr
   Token de autenticação
 </ParamField>
 
-<ParamField body="username" type="string" required>
-  Nome de usuário Nexus
-</ParamField>
-
-<ParamField body="password" type="string" required>
-  Senha do usuário
-</ParamField>
-
-<ParamField body="whatsapp" type="number">
-  WhatsApp do usuário (apenas números)
-</ParamField>
-
 <ParamField body="notes" type="string">
   Observações
-</ParamField>
-
-<ParamField body="email" type="string">
-  E-mail do usuário
-</ParamField>
-
-<ParamField body="months" type="string" required>
-  Duração em meses
-</ParamField>
-
-<ParamField body="sale_value" type="number" required>
-  Valor da venda
-</ParamField>
-
-<ParamField body="screens" type="integer" required>
-  Número de telas
 </ParamField>
 
 <ParamField body="trial" type="boolean" required default="true">
@@ -76,15 +48,8 @@ Cria um novo teste gratuito Nexus no sistema. Esta é a mesma rota usada para cr
 
 ```json TryIt
 {
-  "email": "",
-  "months": "0.5",
   "notes": "",
-  "password": "588497601",
-  "sale_value": 0,
-  "screens": 1,
-  "trial": true,
-  "username": "20868876qn7",
-  "whatsapp": ""
+  "trial": true
 }
 ```
 
@@ -93,15 +58,8 @@ curl -X POST "https://api-new.paineloffice.click/nexus" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
   -d '{
-    "email": "",
-    "months": "0.5",
     "notes": "",
-    "password": "588497601",
-    "sale_value": 0,
-    "screens": 1,
-    "trial": true,
-    "username": "20868876qn7",
-    "whatsapp": ""
+    "trial": true
   }'
 ```
 
