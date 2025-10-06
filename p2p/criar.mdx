@@ -35,16 +35,8 @@ Cria um novo usuário P2P no sistema. Esta é a mesma rota usada para criar test
 
 ## Parâmetros
 
-<ParamField query="username" type="string" required>
-  Nome de usuário para autenticação
-</ParamField>
-
-<ParamField query="password" type="string" required>
-  Senha para autenticação
-</ParamField>
-
-<ParamField query="token" type="string" required>
-  Token de autenticação
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
 </ParamField>
 
 <ParamField body="isTrial" type="boolean" required>

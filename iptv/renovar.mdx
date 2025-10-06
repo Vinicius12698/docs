@@ -22,20 +22,12 @@ Renova um usuário IPTV existente, estendendo sua validade.
 
 ## Parâmetros
 
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
+</ParamField>
+
 <ParamField path="id" type="integer" required>
   ID do usuário IPTV que será renovado
-</ParamField>
-
-<ParamField query="username" type="string" required>
-  Nome de usuário para autenticação
-</ParamField>
-
-<ParamField query="password" type="string" required>
-  Senha para autenticação
-</ParamField>
-
-<ParamField query="token" type="string" required>
-  Token de autenticação
 </ParamField>
 
 <ParamField body="amount" type="number" required>

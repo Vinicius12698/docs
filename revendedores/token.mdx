@@ -20,7 +20,8 @@ auth: "none"
 <CodeGroup>
 
 ```bash Requisição
-PUT /resale/token/fixed?username={username}&password={password}&token={token}
+PUT /resale/token/fixed
+Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
@@ -32,16 +33,8 @@ Fixa ou libera o token de uma revenda específica.
 
 ## Parâmetros
 
-<ParamField query="username" type="string" required>
-  Nome de usuário para autenticação
-</ParamField>
-
-<ParamField query="password" type="string" required>
-  Senha para autenticação
-</ParamField>
-
-<ParamField query="token" type="string" required>
-  Token de autenticação
+<ParamField header="Authorization" type="string" required>
+  Bearer token para autenticação
 </ParamField>
 
 <ParamField body="fixed" type="integer" required>
