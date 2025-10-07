@@ -30,21 +30,22 @@ Estende a validade de um usuário RedClub existente.
   ID do usuário RedClub
 </ParamField>
 
-<ParamField query="credits" type="number" required>
+<ParamField body="credits" type="number" required>
   Créditos para extensão
 </ParamField>
 
-<ParamField query="screens" type="integer" required>
-  Número de telas
-</ParamField>
 
 ## Exemplo de Requisição
 
 <CodeGroup>
 
 ```bash cURL
-curl -X POST "https://api-new.paineloffice.click/red-club/extend/{id}?credits=1&screens=1" \
-  -H "Authorization: Bearer <token>"
+curl -X POST "https://api-new.paineloffice.click/red-club/extend/{id}" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "credits": 1
+  }'
 ```
 
 </CodeGroup>
