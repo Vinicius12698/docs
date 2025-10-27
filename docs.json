@@ -35,7 +35,8 @@
           "iptv/criar-teste",
           "iptv/renovar",
           "iptv/ativar-app",
-          "iptv/migrar"
+          "iptv/migrar",
+          "iptv/recriar"
         ]
       },
       {
