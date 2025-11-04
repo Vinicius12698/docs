@@ -1,18 +1,16 @@
 ---
-title: "Migrar Usuário P2P"
-api: "POST https://api-new.paineloffice.click/p2p/migrate"
-description: "Migra um usuário P2P para um novo pacote"
+title: "Recriar Usuário RedClub"
+api: "POST https://api-new.paineloffice.click/iptv/recreate/redclub"
+description: "Recreate um usuário RedClub existente"
 auth: "none"
 ---
 
 ## Endpoint
 
-### Migrar Usuário P2P
-
 <CodeGroup>
 
 ```bash Requisição
-POST /p2p/migrate
+POST /iptv/recreate/redclub
 Authorization: Bearer <token>
 id: <user_id>
 ```
@@ -21,7 +19,7 @@ id: <user_id>
 
 ## Descrição
 
-Migra um usuário P2P existente para um novo pacote, alterando seu plano e tipo de usuário.
+Recreate um usuário RedClub existente, redefinindo suas configurações e credenciais.
 
 ## Parâmetros
 
@@ -32,17 +30,13 @@ Migra um usuário P2P existente para um novo pacote, alterando seu plano e tipo 
 </ParamField>
 
 <ParamField header="id" type="string" required>
-  ID do usuário P2P a ser migrado
+  ID do usuário RedClub a ser recreate
 </ParamField>
 
 ### Body Parameters
 
-<ParamField body="packageId" type="string" required>
-  ID do pacote para o qual o usuário será migrado
-</ParamField>
-
-<ParamField body="typeUser" type="number" required>
-  Tipo de usuário (1 = IPTV, 2 = P2P, etc.)
+<ParamField body="pass" type="string" required>
+  Nova senha do usuário RedClub
 </ParamField>
 
 ## Resposta
@@ -52,22 +46,25 @@ Migra um usuário P2P existente para um novo pacote, alterando seu plano e tipo 
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  Mensagem de confirmação da migração
+  Mensagem de confirmação
 </ResponseField>
 
 <ResponseField name="data" type="object">
   <Expandable title="properties">
     <ResponseField name="id" type="string">
-      ID do usuário migrado
+      ID do usuário RedClub recreate
     </ResponseField>
-    <ResponseField name="packageId" type="string">
-      ID do novo pacote
+    <ResponseField name="username" type="string">
+      Nome de usuário RedClub
     </ResponseField>
-    <ResponseField name="typeUser" type="number">
-      Tipo de usuário atualizado
+    <ResponseField name="password" type="string">
+      Nova senha do usuário
+    </ResponseField>
+    <ResponseField name="status" type="string">
+      Status do usuário
     </ResponseField>
     <ResponseField name="updatedAt" type="string">
-      Data e hora da migração
+      Data e hora do recreate
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -78,19 +75,17 @@ Migra um usuário P2P existente para um novo pacote, alterando seu plano e tipo 
 
 ```json TryIt
 {
-  "packageId": "5da17892133a1d61888029aa",
-  "typeUser": 2
+  "pass": "novaSenha123"
 }
 ```
 
 ```bash cURL
-curl -X POST "https://api-new.paineloffice.click/p2p/migrate" \
+curl -X POST "https://api-new.paineloffice.click/iptv/recreate/redclub" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
   -H "id: <user_id>" \
   -d '{
-    "packageId": "5da17892133a1d61888029aa",
-    "typeUser": 2
+    "pass": "novaSenha123"
   }'
 ```
 
@@ -101,12 +96,13 @@ curl -X POST "https://api-new.paineloffice.click/p2p/migrate" \
 ```json
 {
   "success": true,
-  "message": "Usuário P2P migrado com sucesso",
+  "message": "Usuário RedClub recreate com sucesso",
   "data": {
     "id": "507f1f77bcf86cd799439011",
-    "packageId": "5da17892133a1d61888029aa",
-    "typeUser": 2,
-    "updatedAt": "2024-10-22T14:30:00Z"
+    "username": "usuario_redclub_001",
+    "password": "novaSenha123",
+    "status": "active",
+    "updatedAt": "2025-10-27T14:30:00Z"
   }
 }
 ```
@@ -122,7 +118,7 @@ curl -X POST "https://api-new.paineloffice.click/p2p/migrate" \
 </ResponseField>
 
 <ResponseField name="404" type="error">
-  Usuário P2P não encontrado
+  Usuário RedClub não encontrado
 </ResponseField>
 
 <ResponseField name="500" type="error">
