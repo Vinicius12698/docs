@@ -53,14 +53,16 @@
         "pages": [
           "nexus/criar",
           "nexus/criar-teste",
-          "nexus/estender"
+          "nexus/estender",
+          "nexus/recriar"
         ]
       },
       {
         "group": "Red Club",
         "pages": [
           "redclub/criar",
-          "redclub/estender"
+          "redclub/estender",
+          "redclub/recriar"
         ]
       }
     ]
