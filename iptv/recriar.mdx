@@ -12,7 +12,13 @@ auth: "none"
 ```bash Requisição
 POST /iptv/recreate
 Authorization: Bearer <token>
-id: <user_id>
+Content-Type: application/json
+
+Body:
+{
+  "id": "<user_id>",
+  "pass": "<nova_senha>"
+}
 ```
 
 </CodeGroup>
@@ -29,11 +35,11 @@ Recreate um usuário IPTV existente, redefinindo suas configurações e credenci
   Bearer token para autenticação
 </ParamField>
 
-<ParamField header="id" type="string" required>
+### Body Parameters
+
+<ParamField body="id" type="string" required>
   ID do usuário IPTV a ser recreate
 </ParamField>
-
-### Body Parameters
 
 <ParamField body="pass" type="string" required>
   Nova senha do usuário IPTV
@@ -75,6 +81,7 @@ Recreate um usuário IPTV existente, redefinindo suas configurações e credenci
 
 ```json TryIt
 {
+  "id": "507f1f77bcf86cd799439011",
   "pass": "novaSenha123"
 }
 ```
@@ -83,8 +90,8 @@ Recreate um usuário IPTV existente, redefinindo suas configurações e credenci
 curl -X POST "https://api-new.paineloffice.click/iptv/recreate" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
-  -H "id: <user_id>" \
   -d '{
+    "id": "507f1f77bcf86cd799439011",
     "pass": "novaSenha123"
   }'
 ```

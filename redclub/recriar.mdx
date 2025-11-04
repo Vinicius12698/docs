@@ -1,6 +1,6 @@
 ---
 title: "Recriar Usuário RedClub"
-api: "POST https://api-new.paineloffice.click/iptv/recreate/redclub"
+api: "POST https://api-new.paineloffice.click/red-club/recreate/{id}"
 description: "Recreate um usuário RedClub existente"
 auth: "none"
 ---
@@ -10,9 +10,9 @@ auth: "none"
 <CodeGroup>
 
 ```bash Requisição
-POST /iptv/recreate/redclub
+POST /red-club/recreate/{id}
 Authorization: Bearer <token>
-id: <user_id>
+Content-Type: application/json
 ```
 
 </CodeGroup>
@@ -23,14 +23,16 @@ Recreate um usuário RedClub existente, redefinindo suas configurações e crede
 
 ## Parâmetros
 
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  ID do usuário RedClub a ser recreate
+</ParamField>
+
 ### Headers
 
 <ParamField header="Authorization" type="string" required>
   Bearer token para autenticação
-</ParamField>
-
-<ParamField header="id" type="string" required>
-  ID do usuário RedClub a ser recreate
 </ParamField>
 
 ### Body Parameters
@@ -80,10 +82,9 @@ Recreate um usuário RedClub existente, redefinindo suas configurações e crede
 ```
 
 ```bash cURL
-curl -X POST "https://api-new.paineloffice.click/iptv/recreate/redclub" \
+curl -X POST "https://api-new.paineloffice.click/red-club/recreate/507f1f77bcf86cd799439011" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
-  -H "id: <user_id>" \
   -d '{
     "pass": "novaSenha123"
   }'
