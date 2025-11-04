@@ -45,7 +45,8 @@
           "p2p/criar",
           "p2p/criar-teste",
           "p2p/renovar",
-          "p2p/migrar"
+          "p2p/migrar",
+          "p2p/recriar"
         ]
       },
       {
