@@ -1,6 +1,6 @@
 ---
 title: "Recriar Usuário P2P"
-api: "POST https://api-new.paineloffice.click/p2p/recreate/{id}"
+api: "PUT https://api-new.paineloffice.click/p2p/recreate/{id}"
 description: "Recreate um usuário P2P existente"
 auth: "none"
 ---
@@ -10,7 +10,7 @@ auth: "none"
 <CodeGroup>
 
 ```bash Requisição
-POST /p2p/recreate/{id}
+PUT /p2p/recreate/{id}
 Authorization: Bearer <token>
 Content-Type: application/json
 ```
@@ -82,7 +82,7 @@ Recreate um usuário P2P existente, redefinindo suas configurações e credencia
 ```
 
 ```bash cURL
-curl -X POST "https://api-new.paineloffice.click/p2p/recreate/507f1f77bcf86cd799439011" \
+curl -X PUT "https://api-new.paineloffice.click/p2p/recreate/507f1f77bcf86cd799439011" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
   -d '{
